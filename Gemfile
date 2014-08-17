@@ -1,5 +1,12 @@
-source 'https://ruby.taobao.org'
-
+env = ENV['RACK_ENV'] || ENV['RAILS_ENV']
+case env
+when /development/i, /test/i
+  source 'https://ruby.taobao.org'
+when /production/i
+  source 'https://rubygems.org'
+else
+  source 'https://rubygems.org'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
