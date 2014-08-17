@@ -8,5 +8,11 @@
 <%= @slice.text %>
 </p>
 
+<h2>Comments</h2>
+<%= render @slice.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
 <%= link_to "Back", slices_path %>
 <%= link_to "Edit", edit_slice_path(@slice) %>
