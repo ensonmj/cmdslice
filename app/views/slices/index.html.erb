@@ -4,6 +4,7 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
+    <th>Note</th>
   </tr>
 
   <% @slices.each do |slice| %>
@@ -11,6 +12,7 @@
       <tr>
         <td><%= slice.title %></td>
         <td><%= slice.text %></td>
+        <td><%= slice.note %></td>
         <td><%= link_to "Show", slice_path(slice) %></td>
         <td><%= link_to "Edit", edit_slice_path(slice) %></td>
         <td><%= link_to "Destroy", slice_path(slice), method: :delete,
