@@ -1,14 +1,17 @@
-<p>
-<strong>Commenter:</strong>
-<%= comment.commenter %>
-</p>
+<div class="comment">
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
 
-<p>
-<strong>Comment:</strong>
-<%= comment.body %>
-</p>
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
 
-<p>
-<%= link_to "Destroy Comment", [comment.cslice, comment], method: :delete,
-data: {confirm: 'Are you sure?'} %>
-</p>
+  <p>
+    <!-- /slices/slice_id/comments/:id -->
+    <%= link_to "Destroy Comment", [comment.cslice, comment], method: :delete,
+      data: {confirm: 'Are you sure?'} %>
+  </p>
+</div>

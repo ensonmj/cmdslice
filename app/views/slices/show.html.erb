@@ -1,20 +1,28 @@
-<p>
-<strong>Title:</strong>
-<%= @slice.title %>
-</p>
+<div class="slice">
+  <div class="title">
+    <p>
+      <strong>Title:</strong>
+      <%= @slice.title %>
+    </p>
+  </div>
 
-<p>
-<strong>Text:</strong>
-<%= @slice.text %>
-</p>
+  <div class="text">
+    <p>
+      <strong>Text:</strong>
+      <%= @slice.text %>
+    </p>
+  </div>
 
-<p>
-<strong>Note:</strong>
-<%= @slice.note %>
-</p>
+  <p>
+    <strong>Note:</strong>
+    <%= @slice.note %>
+  </p>
+</div>
 
+<div class="comments">
 <h2>Comments</h2>
 <%= render @slice.comments %>
+</div>
 
 <h2>Add a comment:</h2>
 <%= render "comments/form" %>
