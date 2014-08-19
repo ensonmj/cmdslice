@@ -5,7 +5,7 @@
     </p>
   </div>
 
-  <div class="text">
+  <div class="text" id="out">
     <p>
       <%= @slice.text %>
     </p>
@@ -28,3 +28,10 @@
 
 <%= link_to "Back", slices_path %>
 <%= link_to "Edit", edit_slice_path(@slice) %>
+
+<script>
+    document.getElementById('out').innerHTML =
+      marked(document.getElementById('out').innerHTML)
+  document.addEventListenner('Loaded', function(e){
+  })
+</script>

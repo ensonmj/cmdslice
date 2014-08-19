@@ -10,5 +10,23 @@
 
 <%= yield %>
 
+<script>
+  hljs.initHighlightingOnLoad();
+
+  var marked = require('marked')
+  marked.setOption({
+    renderer: new marked.Renderer(),
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: true,
+    smartLists: true,
+    smarttypants: false
+    highlight: funciton(code) {
+      return require('highlight.js').highlightAuto(code).value;
+    }
+  });
+</script>
 </body>
 </html>

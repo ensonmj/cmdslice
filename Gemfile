@@ -42,6 +42,9 @@ gem 'spring',        group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'marked-rails'
+gem 'codemirror-rails'
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'pry-rails', group: :development
