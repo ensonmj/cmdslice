@@ -15,5 +15,11 @@
 //= require turbolinks
 //= require_tree .
 //= require marked
-//= require codemirror
 //= require highlight/highlight.pack
+//= require codemirror
+//= require codemirror/modes/xml
+//= require codemirror/modes/markdown
+//= require codemirror/modes/gfm
+//= require codemirror/modes/javascript
+//= require js-deflate/rawdeflate
+//= require js-deflate/rawinflate

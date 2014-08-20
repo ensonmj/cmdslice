@@ -5,11 +5,10 @@
     </p>
   </div>
 
-  <div class="text" id="out">
-    <p>
-      <%= @slice.text %>
-    </p>
+  <div class="text" id="slice_in" style="display:none">
+    <%= @slice.text %>
   </div>
+  <div id="slice_out"></div>
 
   <div class="note" >
     <p>
@@ -30,8 +29,8 @@
 <%= link_to "Edit", edit_slice_path(@slice) %>
 
 <script>
-    document.getElementById('out').innerHTML =
-      marked(document.getElementById('out').innerHTML)
-  document.addEventListenner('Loaded', function(e){
-  })
+  document.addEventListener('DOMContentLoaded', function(e){
+    document.getElementById('slice_out').innerHTML =
+      marked(document.getElementById('slice_in').innerHTML);
+  });
 </script>
