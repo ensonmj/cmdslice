@@ -17,11 +17,11 @@
     <%= f.text_field :title %>
   </p>
 
-  <p>
+  <p id="in">
     <%= f.label :text %><br>
     <%= f.text_area :text %>
   </p>
-  <div id="out"></div>
+  <div id="out"><p>placeholder</p></div>
 
   <p>
     <%= f.label :note %><br>
@@ -33,11 +33,12 @@
   </p>
 <% end %>
 <div>
+<div id="preview"><p>placeholder</p></div>
 
-<script>
-  <%#var URL = window.URL || window.webkitURL || window.mozURL || window.msURL;%>
-  <%#navigator.saveBlob = navigator.saveBlob || navigator.msSaveBlob || navigator.mozSaveBlob || navigator.webkitSaveBlob;%>
-  <%#window.saveAs = window.saveAs || window.webkitSaveAs || window.mozSaveAs || window.msSaveAs;%>
+<script type="text/javascript">
+  var URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+  navigator.saveBlob = navigator.saveBlob || navigator.msSaveBlob || navigator.mozSaveBlob || navigator.webkitSaveBlob;
+  window.saveAs = window.saveAs || window.webkitSaveAs || window.mozSaveAs || window.msSaveAs;
 
   // Because highlight.js is a bit awkward at times
   var languageOverrides = {
@@ -53,9 +54,9 @@
   });
 
   function setOutput(val){
-    <%#val = val.replace(/<equation>((.*?\n)*?.*?)<\/equation>/ig, function(a, b){%>
-      <%#return '<img src="http://latex.codecogs.com/png.latex?' + encodeURIComponent(b) + '" />';%>
-    <%#});%>
+    val = val.replace(/<equation>((.*?\n)*?.*?)<\/equation>/ig, function(a, b){
+      return '<img src="http://latex.codecogs.com/png.latex?' + encodeURIComponent(b) + '" />';
+    });
 
     document.getElementById('out').innerHTML = marked(val);
   }
@@ -65,84 +66,84 @@
 
     setOutput(val);
 
-    <%#clearTimeout(hashto);%>
-    <%#hashto = setTimeout(updateHash, 1000);%>
+    clearTimeout(hashto);
+    hashto = setTimeout(updateHash, 1000);
   }
 
   var editor = CodeMirror.fromTextArea(document.getElementById('slice_text'), {
     value: "** Please use markdown **",
-    mode: 'markdown',
-    <%#mode: 'gfm',%>
+    <%#mode: 'markdown',%>
+    mode: 'gfm',
     lineNumbers: true,
     matchBrackets: true,
     lineWrapping: true,
     theme: 'default',
-    onChange: update
   });
+  editor.on("change", update);
 
-  <%#document.addEventListener('drop', function(e){%>
-    <%#e.preventDefault();%>
-    <%#e.stopPropagation();%>
+  document.addEventListener('drop', function(e){
+    e.preventDefault();
+    e.stopPropagation();
 
-    <%#var theFile = e.dataTransfer.files[0];%>
-    <%#var theReader = new FileReader();%>
-    <%#theReader.onload = function(e){%>
-      <%#editor.setValue(e.target.result);%>
-    <%#};%>
+    var theFile = e.dataTransfer.files[0];
+    var theReader = new FileReader();
+    theReader.onload = function(e){
+      editor.setValue(e.target.result);
+    };
 
-    <%#theReader.readAsText(theFile);%>
-  <%#}, false);%>
+    theReader.readAsText(theFile);
+  }, false);
 
-  <%#function save(){%>
-    <%#var code = editor.getValue();%>
-    <%#var blob = new Blob([code], { type: 'text/plain' });%>
-    <%#saveBlob(blob);%>
-  <%#}%>
+  function save(){
+    var code = editor.getValue();
+    var blob = new Blob([code], { type: 'text/plain' });
+    saveBlob(blob);
+  }
 
-  <%#function saveBlob(blob){%>
-    <%#var name = "untitled.md";%>
-    <%#if(window.saveAs){%>
-      <%#window.saveAs(blob, name);%>
-    <%#}else if(navigator.saveBlob){%>
-      <%#navigator.saveBlob(blob, name);%>
-    <%#}else{%>
-      <%#url = URL.createObjectURL(blob);%>
-      <%#var link = document.createElement("a");%>
-      <%#link.setAttribute("href",url);%>
-      <%#link.setAttribute("download",name);%>
-      <%#var event = document.createEvent('MouseEvents');%>
-      <%#event.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);%>
-      <%#link.dispatchEvent(event);%>
-    <%#}%>
-  <%#}%>
+  function saveBlob(blob){
+    var name = "untitled.md";
+    if(window.saveAs){
+      window.saveAs(blob, name);
+    }else if(navigator.saveBlob){
+      navigator.saveBlob(blob, name);
+    }else{
+      url = URL.createObjectURL(blob);
+      var link = document.createElement("a");
+      link.setAttribute("href",url);
+      link.setAttribute("download",name);
+      var event = document.createEvent('MouseEvents');
+      event.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
+      link.dispatchEvent(event);
+    }
+  }
 
-  <%#document.addEventListener('keydown', function(e){%>
-    <%#if(e.keyCode == 83 && (e.ctrlKey || e.metaKey)){%>
-      <%#e.preventDefault();%>
-      <%#save();%>
-      <%#return false;%>
-    <%#}%>
-  <%#})%>
+  document.addEventListener('keydown', function(e){
+    if(e.keyCode == 83 && (e.ctrlKey || e.metaKey)){
+      e.preventDefault();
+      save();
+      return false;
+    }
+  })
 
-  <%#var hashto;%>
+  var hashto;
 
-  <%#function updateHash(){%>
-    <%#window.location.hash = btoa(RawDeflate.deflate(unescape(encodeURIComponent(editor.getValue()))))%>
-  <%#}%>
+  function updateHash(){
+    window.location.hash = btoa(RawDeflate.deflate(unescape(encodeURIComponent(editor.getValue()))))
+  }
 
-  <%#if(window.location.hash){%>
-    <%#var h = window.location.hash.replace(/^#/, '');%>
-    <%#if(h.slice(0,5) == 'view:'){%>
-      <%#setOutput(decodeURIComponent(escape(RawDeflate.inflate(atob(h.slice(5))))));%>
-      <%#document.body.className = 'view';%>
-    <%#}else{%>
-      <%#editor.setValue(decodeURIComponent(escape(RawDeflate.inflate(atob(h)))))%>
-      <%#update(editor);%>
-      <%#editor.focus();%>
-    <%#}%>
-  <%#}else{%>
-    <%#update(editor);%>
-    <%#editor.focus();%>
-  <%#}%>
+  if(window.location.hash){
+    var h = window.location.hash.replace(/^#/, '');
+    if(h.slice(0,5) == 'view:'){
+      setOutput(decodeURIComponent(escape(RawDeflate.inflate(atob(h.slice(5))))));
+      document.body.className = 'view';
+    }else{
+      editor.setValue(decodeURIComponent(escape(RawDeflate.inflate(atob(h)))))
+      update(editor);
+      editor.focus();
+    }
+  }else{
+    update(editor);
+    editor.focus();
+  }
 
 </script>
