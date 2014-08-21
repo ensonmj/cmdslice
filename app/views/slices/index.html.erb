@@ -1,25 +1,29 @@
 <h1>All slices</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th>Note</th>
-  </tr>
-
-  <% @slices.each do |slice| %>
-    <div class="slice">
-      <tr>
-        <td><%= slice.title %></td>
-        <td><%= slice.text %></td>
-        <td><%= slice.note %></td>
-        <td><%= link_to "Show", slice_path(slice) %></td>
-        <td><%= link_to "Edit", edit_slice_path(slice) %></td>
-        <td><%= link_to "Destroy", slice_path(slice), method: :delete,
-          data: {confirm: "Are you sure?"} %></td>
-      </tr>
+<div class="slices">
+<% @slices.each do |slice| %>
+  <div class="slice_entry">
+    <div class="se_title">
+      <%= slice.title %>
     </div>
-  <% end %>
-</table>
+    <div class="se_text">
+<%= slice.text %>
+    </div>
+    <div class="se_note">
+      <%= slice.note %>
+    </div>
+  </div>
+<% end %>
+</div>
 
 <%= link_to "New slice", new_slice_path %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(e){
+    var sts = document.getElementsByClassName("se_text");
+    for(i=0; i<sts.length; i++) {
+      var md = marked(sts[i].innerHTML);
+      sts[i].innerHTML = md;
+    }
+  });
+</script>

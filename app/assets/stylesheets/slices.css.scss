@@ -1,6 +1,8 @@
 // Place all the styles related to the slices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// new
 .container {
   margin: 0 auto;
 
@@ -51,3 +53,32 @@
     }
   }
 }
+
+//index
+.slices {
+  margin: 0 auto;
+  width: 80%;
+  .slice_entry {
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    .se_title {
+      background: #D0D0D0;
+    }
+    .se_note {
+      background: #EEE;
+    }
+  }
+}
+
+//show
+.slice_entry {
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  .se_title {
+    background: #D0D0D0;
+  }
+  .se_note {
+    background: #EEE;
+  }
+}
+

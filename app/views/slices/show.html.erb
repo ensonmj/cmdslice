@@ -1,16 +1,15 @@
-<div class="slice">
-  <div class="title">
+<div class="slice_entry">
+  <div class="se_title">
     <p>
       <%= @slice.title %>
     </p>
   </div>
 
-  <div class="text" id="slice_in">
+  <div class="se_text" id="slice_text">
 <%= @slice.text %>
   </div>
-  <div id="slice_out"></div>
 
-  <div class="note" >
+  <div class="se_note" >
     <p>
       <%= @slice.note %>
     </p>
@@ -30,7 +29,8 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function(e){
-    document.getElementById('slice_out').innerHTML =
-      marked(document.getElementById('slice_in').innerHTML);
+    var se = document.getElementById('slice_text');
+    var md = marked(se.innerHTML);
+    se.innerHTML = md;
   });
 </script>
