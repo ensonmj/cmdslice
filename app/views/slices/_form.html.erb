@@ -12,20 +12,18 @@
   <% end %>
 
   <div class="title">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "span1", placeholder: "Title" %>
   </div>
 
   <div class="text">
     <div id="in">
       <%= f.text_area :text %>
     </div>
-    <div id="preview"><p>placeholder</p></div>
+    <div id="preview"><pre><code>Markdown Preview</code></pre></div>
   </div>
 
   <div class="note">
-    <%= f.label :note %><br>
-    <%= f.text_area :note %>
+    <%= f.text_area :note, class: "note-body", placeholder: "Note" %>
   </div>
 
   <p>
@@ -39,15 +37,18 @@
   window.saveAs = window.saveAs || window.webkitSaveAs || window.mozSaveAs || window.msSaveAs;
 
   // Because highlight.js is a bit awkward at times
-  var languageOverrides = {
-    js: 'javascript',
-    html: 'xml'
-  }
+  <%#var languageOverrides = {%>
+    <%#js: 'javascript',%>
+    <%#html: 'xml'%>
+  <%#}%>
 
   marked.setOptions({
+    <%#highlight: function(code, lang){%>
+      <%#if(languageOverrides[lang]) lang = languageOverrides[lang];%>
+      <%#return hljs.getLanguage[lang] ? hljs.highlight(lang, code).value : code;%>
+    <%#}%>
     highlight: function(code, lang){
-      if(languageOverrides[lang]) lang = languageOverrides[lang];
-      return hljs.LANGUAGES[lang] ? hljs.highlight(lang, code).value : code;
+      return hljs.highlightAuto(code).value;
     }
   });
 
