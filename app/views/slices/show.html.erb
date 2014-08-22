@@ -1,11 +1,11 @@
-<div class="slice_entry">
+<div class="slice">
   <div class="se_title">
     <p>
       <%= @slice.title %>
     </p>
   </div>
 
-  <div class="se_text" id="slice_text">
+  <div class="se_text" id="se_text">
 <%= @slice.text %>
   </div>
 
@@ -29,7 +29,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function(e){
-    var se = document.getElementById('slice_text');
+    var se = document.getElementById('se_text');
     var md = marked(se.innerHTML);
     se.innerHTML = md;
   });
