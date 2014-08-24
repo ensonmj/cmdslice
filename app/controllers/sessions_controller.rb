@@ -3,6 +3,6 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(request.env['omniauth.auth'])
     session[:user_id] = user.id
     flash[:notice] = "Welcome #{user.nickname}"
-    redirect_to root_url
+    redirect_to root_path
   end
 end

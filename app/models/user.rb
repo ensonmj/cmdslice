@@ -6,25 +6,34 @@ class User < ActiveRecord::Base
   has_many :authentications
   accepts_nested_attributes_for :authentications
 
+  def add_auth(auth)
+    authentications.create(provider: auth[:provider], uid: auth[:uid])
+  end
+
   class << self
     def from_omniauth(auth)
-      Authentication.find_by(provider: auth[:provider],
-        uid: auth[:uid]).try(:user) || create_with_omniauth(auth)
+      locate_auth(auth) || locate_by_email(auth) || create_auth(auth)
     end
 
-    def create_with_omniauth(auth)
+    def locate_auth(auth)
+      Authentication.find_by(provider: auth[:provider],
+        uid: auth[:uid]).try(:user)
+    end
+
+    def locate_email(auth)
+      user = find_by(email: auth[:info][:email])
+      return unless user
+      user.add_auth(auth)
+      user
+    end
+
+    def create_auth(auth)
       create! do |user|
         user.nickname = auth[:info][:nickname]
         user.email = auth[:info][:email]
         authentications_attributes = Authentication.new(
           provider: auth[:provider], uid: auth[:uid]).attributes
       end
-      #create!(nickname: auth[:info][:nickname],
-              #email: auth[:info][:email],
-              #authentications_attributes: [
-                #Authentication.new(provider: auth[:provider],
-                                   #uid: auth[:uid]).attributes
-              #])
     end
   end
 end
