@@ -45,8 +45,10 @@ gem 'spring',        group: :development
 gem 'marked-rails'
 gem 'codemirror-rails'
 
+gem 'omniauth-github'
+
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 gem 'pry-rails', group: :development
 
 # gems for deployment in heroku
