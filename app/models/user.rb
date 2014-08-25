@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   class << self
     def from_omniauth(auth)
-      locate_auth(auth) || locate_by_email(auth) || create_auth(auth)
+      locate_auth(auth) || locate_email(auth) || create_user(auth)
     end
 
     def locate_auth(auth)
@@ -27,12 +27,13 @@ class User < ActiveRecord::Base
       user
     end
 
-    def create_auth(auth)
+    def create_user(auth)
       create! do |user|
         user.nickname = auth[:info][:nickname]
         user.email = auth[:info][:email]
-        authentications_attributes = Authentication.new(
-          provider: auth[:provider], uid: auth[:uid]).attributes
+        user.authentications_attributes = [
+          {provider: auth[:provider], uid: auth[:uid]}
+        ]
       end
     end
   end
