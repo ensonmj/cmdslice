@@ -17,7 +17,13 @@
           placeholder="search" >
         </form>
         <div class="navbar-account">
-          <%= link_to "sign_up or sign_in", "/account" %>
+          <% if current_user %>
+            <%= link_to current_user.nickname, user_path(current_user) %>
+            <%= link_to "log out", "/account/logout" %>
+          <% else %>
+            <%= link_to "sign up", "/account/signup" %>
+            <%= link_to "log in", "/account/login" %>
+          <% end %>
         </div>
       </div>
     </div>

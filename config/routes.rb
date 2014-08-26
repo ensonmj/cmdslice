@@ -6,11 +6,13 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get "/account" => "sessions#new"
+  get "/account/signup" => "sessions#new"
+  get "/account/login" => "sessions#new"
+  get "/account/logout" => "sessions#destroy", :as => "logout"
   match "/auth/:provider/callback" => "sessions#create", via: [:get, :post]
   get "/auth/failure" => "sessions#failure"
-  get "/account/logout" => "sessions#destroy", :as => "logout"
   resources :identities
+  resources :users
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
