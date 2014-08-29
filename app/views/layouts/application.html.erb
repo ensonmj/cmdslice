@@ -28,13 +28,23 @@
       </div>
     </div>
 
-    <div class="top-fixed">
+    <header class="top-fixed">
       <p><%= flash[:notice] %></p><br>
       The palest ink is better than the best memory.
-    </div>
+    </header>
 
-    <div class="container">
-      <%= yield %>
+    <div class="clearfix container">
+      <section>
+        <%= yield %>
+      </section>
+
+      <aside>
+        <% if current_user %>
+          <%= current_user.nickname %>
+        <% else %>
+          sidebar
+        <% end %>
+      </aside>
     </div>
 
     <script>

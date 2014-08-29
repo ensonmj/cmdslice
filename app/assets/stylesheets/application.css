@@ -38,13 +38,6 @@ a:link {
   text-decoration: none;
 }
 
-.container {
-  width: 80%;
-  margin: 0 auto;
-  clear: both;
-  background-color: #FFF;
-}
-
 .navbar {
   position: static;
   top: 0;
@@ -60,14 +53,18 @@ a:link {
 }
 
 .site-logo {
+  display: inline-block;
   width: 100px;
-  height: 30px;
-  margin: 0 auto;
+  /*height: 30px;*/
+  /*margin: 0 auto;*/
+  margin-left: 48%;
+  margin-right: 20%;
   text-align: center;
 }
 
 .navbar-search {
-  float: right;
+  /*float: right;*/
+  display: inline-block;
   margin-top: -30px;
   margin-left: auto;
   margin-right: 2px;
@@ -78,8 +75,14 @@ a:link {
 }
 
 .navbar-search input {
+  display: inline-block;
   box-sizing: border-box;
   width: 100%;
+}
+
+.navbar-account {
+  display: inline-block;
+  box-shadow: 0 2px 2px;
 }
 
 .top-fixed {
@@ -91,4 +94,36 @@ a:link {
   font-size: 18px;
   background: #FFF;
   display: block;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  clear: both;
+  *zoom: 1;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #FFF;
+}
+
+section {
+  float: left;
+  margin: 0 1.5%;
+  width: 65%;
+}
+
+aside {
+  float: right;
+  margin: 0 1.5%;
+  width: 28%;
 }
