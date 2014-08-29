@@ -49,7 +49,7 @@ gem 'omniauth-github'
 gem 'omniauth-identity'
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+gem 'byebug', group: [:development, :test]
 gem 'pry-rails', group: :development
 
 # gems for deployment in heroku
