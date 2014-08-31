@@ -3,8 +3,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_format_of :email,
     :with => /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
-  has_many :authentications
+  has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
+  has_many :slices, :dependent => :destroy
 
   def add_auth(auth)
     authentications.create(provider: auth[:provider], uid: auth[:uid])

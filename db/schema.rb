@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824144801) do
+ActiveRecord::Schema.define(version: 20140831143551) do
 
   create_table "authentications", force: true do |t|
     t.string   "provider"
@@ -47,7 +47,10 @@ ActiveRecord::Schema.define(version: 20140824144801) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "note"
+    t.integer  "user_id"
   end
+
+  add_index "slices", ["user_id"], name: "index_slices_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "nickname"

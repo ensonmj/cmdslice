@@ -1,19 +1,5 @@
 <div class="slice">
-  <div class="se_title">
-    <p>
-      <%= @slice.title %>
-    </p>
-  </div>
-
-  <div class="se_text" id="se_text">
-<%= @slice.text %>
-  </div>
-
-  <div class="se_note" >
-    <p>
-      <%= @slice.note %>
-    </p>
-  </div>
+  <%= render @slice %>
 </div>
 
 <div class="comments">
