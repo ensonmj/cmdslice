@@ -43,7 +43,7 @@
 
       <aside>
         <% if current_user %>
-          <%= current_user.nickname %>
+          <%= render 'users/stat' %>
         <% else %>
           sidebar
         <% end %>

@@ -1,6 +1,8 @@
-<div class="se_title">
-  <%= slice.title %>
-</div>
+<%= link_to slice_path(slice) do %>
+  <div class="se_title">
+    <%= slice.title %>
+  </div>
+<% end %>
 
 <div class="se_text">
 <%= slice.text %>
