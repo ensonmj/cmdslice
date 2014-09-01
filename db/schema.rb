@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831143551) do
+ActiveRecord::Schema.define(version: 20140901041031) do
 
   create_table "authentications", force: true do |t|
     t.string   "provider"
@@ -24,14 +24,15 @@ ActiveRecord::Schema.define(version: 20140831143551) do
   add_index "authentications", ["user_id"], name: "index_authentications_on_user_id"
 
   create_table "comments", force: true do |t|
-    t.string   "commenter"
     t.text     "body"
     t.integer  "slice_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "comments", ["slice_id"], name: "index_comments_on_slice_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "identities", force: true do |t|
     t.string   "nickname"

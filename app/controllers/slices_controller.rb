@@ -5,7 +5,7 @@ class SlicesController < ApplicationController
 
   def create
     #render plain: params.inspect
-    @slice = Slice.new(slice_params)
+    @slice = current_user.slices.new(slice_params)
     if @slice.save
       redirect_to @slice
     else
