@@ -15,13 +15,3 @@
       </div>
   <% end %>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function(e){
-    var sts = document.getElementsByClassName("se_text");
-    for(i=0; i<sts.length; i++) {
-      var md = marked(sts[i].innerHTML);
-      sts[i].innerHTML = md;
-    }
-  });
-</script>

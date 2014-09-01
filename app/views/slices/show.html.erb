@@ -12,11 +12,3 @@
 
 <%= link_to "Back", slices_path %>
 <%= link_to "Edit", edit_slice_path(@slice) %>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function(e){
-    var se = document.getElementById('se_text');
-    var md = marked(se.innerHTML);
-    se.innerHTML = md;
-  });
-</script>

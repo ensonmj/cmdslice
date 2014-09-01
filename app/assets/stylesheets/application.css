@@ -88,7 +88,25 @@ a:link {
   right: 10px;
   height: 30px;
   line-height: 30px;
-  box-shadow: 0 2px 2px;
+}
+.navbar-account ul {
+  margin: 0;
+  padding: 0;
+}
+.navbar-account li {
+  display: inline-block;
+}
+.navbar-account a {
+  /*background: #395870;*/
+  background: #d0d0d0;
+  color: #fff;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 2px 8px;
+  text-decoration: none;
+}
+.navbar-account a:hover {
+  background: #314b60;
+  box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.1);
 }
 
 .top-fixed {
@@ -97,9 +115,8 @@ a:link {
   margin: 0 auto;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 18px;
+  font-size: 1.2em;
   background: #FFF;
-  display: block;
 }
 
 .clearfix:before, .clearfix:after {

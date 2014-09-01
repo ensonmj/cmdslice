@@ -17,19 +17,22 @@
           placeholder="search" >
         </form>
         <div class="navbar-account">
-          <% if current_user %>
-            <%= link_to current_user.nickname, user_path(current_user) %>
-            <%= link_to "log out", "/account/logout" %>
-          <% else %>
-            <%= link_to "sign up", "/account/signup" %>
-            <%= link_to "log in", "/account/login" %>
-          <% end %>
+          <ul>
+            <% if current_user %>
+              <li><%= link_to current_user.nickname, user_path(current_user) %></li><!--
+              --><li><%= link_to "log out", "/account/logout" %></li>
+            <% else %>
+              <li><%= link_to "log in", "/account/login" %></li><!--
+              --><li><%= link_to "sign up", "/account/signup" %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
     </div>
 
     <header class="top-fixed">
       <p><%= flash[:notice] %></p><br>
+      好记性不如烂笔头<br>
       The palest ink is better than the best memory.
     </header>
 
@@ -49,6 +52,14 @@
 
     <script>
       hljs.initHighlightingOnLoad();
+
+      document.addEventListener('DOMContentLoaded', function(e){
+        var sts = document.getElementsByClassName("se_text");
+        for(i=0; i<sts.length; i++) {
+          var md = marked(sts[i].innerHTML);
+          sts[i].innerHTML = md;
+        }
+      });
     </script>
   </body>
 </html>
