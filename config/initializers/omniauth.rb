@@ -1,5 +1,5 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
+  provider :github, Settings.github_token, Settings.github_secret
 
   # There’s an issue with calling this action directly:
   # in development mode the action won’t always be reloaded so we’ve

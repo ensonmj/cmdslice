@@ -48,6 +48,8 @@ gem 'codemirror-rails'
 gem 'omniauth-github'
 gem 'omniauth-identity'
 
+gem 'settingslogic'
+
 # Use debugger
 gem 'byebug', group: [:development, :test]
 gem 'pry-rails', group: :development

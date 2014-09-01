@@ -1,0 +1,13 @@
+defaults: &defaults
+  google_analytics_key: ""
+  github_token: ""
+  github_secret: ""
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
