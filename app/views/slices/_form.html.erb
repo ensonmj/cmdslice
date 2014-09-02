@@ -1,18 +1,8 @@
 <%= form_for @slice do |f| %>
-  <% if @slice.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@slice.errors.count, "errors") %> prohibited this slice
-        from being saved:</h2>
-      <ul>
-        <% @slice.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render partial: "shared/err", locals: {res: @slice} %>
 
   <div class="title">
-    <%= f.text_field :title, class: "span1", placeholder: "Title" %>
+    <%= f.text_field :title, class: "span1", required: true, placeholder: "Title" %>
   </div>
 
   <div class="text">
@@ -20,10 +10,6 @@
       <%= f.text_area :text %>
     </div>
     <div id="preview"><pre><code>Markdown Preview</code></pre></div>
-  </div>
-
-  <div class="note">
-    <%= f.text_area :note, class: "note-body", placeholder: "Note" %>
   </div>
 
   <p>
@@ -36,17 +22,7 @@
   navigator.saveBlob = navigator.saveBlob || navigator.msSaveBlob || navigator.mozSaveBlob || navigator.webkitSaveBlob;
   window.saveAs = window.saveAs || window.webkitSaveAs || window.mozSaveAs || window.msSaveAs;
 
-  // Because highlight.js is a bit awkward at times
-  <%#var languageOverrides = {%>
-    <%#js: 'javascript',%>
-    <%#html: 'xml'%>
-  <%#}%>
-
   marked.setOptions({
-    <%#highlight: function(code, lang){%>
-      <%#if(languageOverrides[lang]) lang = languageOverrides[lang];%>
-      <%#return hljs.getLanguage[lang] ? hljs.highlight(lang, code).value : code;%>
-    <%#}%>
     highlight: function(code, lang){
       return hljs.highlightAuto(code).value;
     }
@@ -143,5 +119,4 @@
     update(editor);
     editor.focus();
   }
-
 </script>

@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    redirect_to account_path,
+    redirect_to login_path,
       alert: "Authentication failed, please try again."
   end
 end
