@@ -47,10 +47,10 @@
       </section>
 
       <aside>
-        <% if current_user %>
-          <%= render 'users/stat' %>
+        <% if current_user && lookup_context.template_exists?( 'sidebar', controller._prefixes, true) %>
+          <%= render "#{controller_name}/sidebar" %>
         <% else %>
-          sidebar
+          <%= render 'shared/sidebar' %>
         <% end %>
       </aside>
     </div>
