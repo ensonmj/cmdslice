@@ -1,3 +1,13 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user_new_slice {
+  background: #d0d0d0;
+  margin-bottom: 18px;
+  padding: 20px;
+  .btn {
+    background: linear-gradient(#49708f, #293f50);
+    color: #fff;
+    display: inline-block;
+  }
+}

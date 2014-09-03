@@ -1,14 +1,14 @@
 <div class="slice">
   <%= render @slice %>
 </div>
-
-<div class="comments">
-  <h2>Comments</h2>
-  <%= render @slice.comments %>
-</div>
-
-<h2>Add a comment:</h2>
-<%= render "comments/form" %>
-
 <%= link_to "Back", slices_path %>
 <%= link_to "Edit", edit_slice_path(@slice) %>
+
+<div class="comments-box">
+  <div class="comments-stat"><%= pluralize(@slice.comments.count, "comment") %></div>
+  <div class="comments">
+    <%= render @slice.comments %>
+  </div>
+</div>
+
+<%= render "comments/form" %>

@@ -1,0 +1,8 @@
+<div class="stat">
+  <h2 class="title">Site Stat</h2>
+  <ul class="content">
+    <li><%= pluralize(User.all.count, "user") %></li>
+    <li><%= pluralize(Slice.all.count, "slice") %></li>
+    <li><%= pluralize(Comment.all.count, "comment") %></li>
+  </ul>
+</div>

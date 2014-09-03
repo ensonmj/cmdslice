@@ -1,4 +1,8 @@
-<p>Dear <%= current_user.nickname %>:</p>
-<p>You have total <%= pluralize(current_user.slices.count, "slice") %>,
-and have got <%= pluralize(current_user_got_comments, "comment") %>.</p>
-<p>And you have yield <%= pluralize(current_user.comments.count, "comment") %>.</p>
+<div class="stat">
+  <h2 class="title">User Stat</h2>
+  <div class="content">
+    <p>You have <%= pluralize(current_user.slices.count, "slice") %>,
+      <%= pluralize(current_user_got_comments, "comment") %>.</p>
+    <p>Yield <%= pluralize(current_user.comments.count, "comment") %>.</p>
+  </div>
+</div>

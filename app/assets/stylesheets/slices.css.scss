@@ -52,9 +52,14 @@
   margin-bottom: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   .se_title {
+    padding: 6px 10px;
     background: #D0D0D0;
   }
+  .se_text {
+    /*padding: 6px 10px;*/
+  }
   .se_note {
+    padding: 6px 10px;
     background: #EEE;
   }
 }

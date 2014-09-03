@@ -1,17 +1,16 @@
 <div class="comment">
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.user.nickname %>
-  </p>
+  <div class="comment-info">
+    <span><%= comment.user.nickname %></span>
+    <span><%= comment.updated_at %></span>
+  </div>
 
-  <p>
-    <strong>Comment:</strong>
+  <div class="comment-body">
     <%= comment.body %>
-  </p>
+  </div>
 
-  <p>
+  <div>
     <!-- /slices/slice_id/comments/:id -->
     <%= link_to "Destroy Comment", [comment.cslice, comment], method: :delete,
       data: {confirm: 'Are you sure?'} %>
-  </p>
+  </div>
 </div>
