@@ -50,6 +50,9 @@ gem 'omniauth-identity'
 
 gem 'settingslogic'
 
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
 # Use debugger
 gem 'byebug', group: [:development, :test]
 gem 'pry-rails', group: :development

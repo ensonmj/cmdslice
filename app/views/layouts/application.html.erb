@@ -9,8 +9,13 @@
   <body data-controller-name="<%= controller_name %>">
     <div class="navbar">
       <div class="navbar-inner">
+        <ul class="navbar-menu">
+          <li><%= link_to "Share", "#" %></li><!--
+          --><li><%= link_to "Ask", "#" %></li><!--
+          --><li><%= link_to "Award", "#" %></li>
+        </ul>
         <div class="site-logo">
-          <%= link_to 'CodeSlice', '/' %>
+          <%= link_to "CodeSlice", "/" %>
         </div>
         <form action="#" class="navbar-search" method="get">
           <input type="text" name="q" class="search" value="<%= params[:q] %>"
@@ -47,14 +52,14 @@
       </section>
 
       <aside>
-        <%= render 'sidebar' %>
+        <%= render "sidebar" %>
       </aside>
     </div>
 
     <script type="text/javascript">
       hljs.initHighlightingOnLoad();
 
-      document.addEventListener('DOMContentLoaded', function(e){
+      document.addEventListener("DOMContentLoaded", function(e){
         var sts = document.getElementsByClassName("se_text");
         for(i=0; i<sts.length; i++) {
           var md = marked(sts[i].innerHTML);
@@ -64,16 +69,16 @@
 
       <!--google analytics-->
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', '<%= Settings.google_analytics_key %>']);
-      _gaq.push(['_setSiteSpeedSampleRate', 100]);
-      _gaq.push(['_trackPageview']);
+      _gaq.push(["_setAccount", "<%= Settings.google_analytics_key %>"]);
+      _gaq.push(["_setSiteSpeedSampleRate", 100]);
+      _gaq.push(["_trackPageview"]);
 
       (function() {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
+        var ga = document.createElement("script");
+        ga.type = "text/javascript";
         ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+        var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
   </body>

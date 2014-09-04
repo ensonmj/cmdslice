@@ -1,21 +1,12 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require reset
- *= require_self
- *= require_tree .
  *= require codemirror
  *= require highlight/github
+ *= require_tree .
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -84,6 +75,20 @@ input {
   width: 960px;
   position: relative;
 }
+.navbar-inner ul {
+  margin: 0;
+  padding: 0;
+}
+.navbar-inner li {
+  display: inline-block;
+}
+
+.navbar-menu {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  text-align: center;
+}
 
 .site-logo {
   display: inline-block;
@@ -124,13 +129,6 @@ input {
   right: 10px;
   height: 30px;
   line-height: 30px;
-}
-.navbar-account ul {
-  margin: 0;
-  padding: 0;
-}
-.navbar-account li {
-  display: inline-block;
 }
 .navbar-account a {
   background: #2DB34A;
