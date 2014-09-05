@@ -24,3 +24,4 @@
 //= require codemirror/modes/javascript
 //= require js-deflate/rawdeflate
 //= require js-deflate/rawinflate
+//= require bootstrap-sprockets
