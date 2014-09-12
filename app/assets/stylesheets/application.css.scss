@@ -21,17 +21,13 @@ pre, code {
   font-family: "Source Code Pro", Inconsolata, Terminal, "Courier New", Courier, monospace;
 }
 
-/*a:link {*/
-  /*text-decoration: none;*/
+/*form {*/
+  /*border: 1px solid #c6c7cc;*/
+  /*border-radius: 5px;*/
+  /*font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  /*overflow: hidden;*/
+  /*width: 240px;*/
 /*}*/
-
-form {
-  border: 1px solid #c6c7cc;
-  border-radius: 5px;
-  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  overflow: hidden;
-  width: 240px;
-}
 
 fieldset {
   padding: 0;
@@ -45,52 +41,20 @@ input {
   margin: 0;
 }
 
-.btn {
-  border: 0;
-  border-radius: 5px;
-  padding: 8px 16px;
-  cursor: pointer;
-  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 .navbar {
-  top: 0;
-  left: 0;
-  right: 0;
-  margin-bottom: 20px;
-  height: 40px;
+  max-height: 40px;
+  border-radius: 0;
   background-color: #666;
 }
 
-.navbar-inner {
-  margin: 0 auto;
-  width: 960px;
-  position: relative;
-  ul {
-    margin: 0;
-    padding: 0;
-    li {
-      display: inline-block;
-    }
-  }
-}
-
-.navbar-menu {
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  text-align: center;
-}
-
 .site-logo {
-  display: inline-block;
-  width: 100px;
-  margin-top: 5px;
-  position: absolute;
-  left: 430px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
+  /*display: inline-block;*/
+  /*width: 100px;*/
+  /*margin-top: 5px;*/
+  /*position: absolute;*/
+  /*left: 430px;*/
+  /*height: 30px;*/
+  /*text-align: center;*/
   a {
     color: #FFF;
     font-weight: 600;
@@ -102,34 +66,27 @@ input {
 
 .navbar-search {
   display: inline-block;
-  position: absolute;
-  right: 140px;
-  height: 40px;
-  border: 0;
-  padding: 5px 30px;
-  input {
-    width: 100%;
-    height: 100%;
-  }
+  /*border: 0;*/
+  /*padding: 5px 30px;*/
+  /*input {*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+  /*}*/
 }
 
 .navbar-account {
   display: inline-block;
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  height: 30px;
-  line-height: 30px;
-  a {
-    background: #2DB34A;
-    color: #fff;
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 2px 8px;
-    text-decoration: none;
-    &:hover {
-      background: #314b60;
-    }
-  }
+  /*top: 5px;*/
+  /*right: 10px;*/
+  /*height: 30px;*/
+  /*a {*/
+    /*background: #2DB34A;*/
+    /*color: #fff;*/
+    /*text-decoration: none;*/
+    /*&:hover {*/
+      /*background: #314b60;*/
+    /*}*/
+  /*}*/
 }
 
 .top-fixed {
@@ -142,25 +99,13 @@ input {
   background: #cecfd5;
 }
 
-.clearfix:before, .clearfix:after {
-  content: "";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
-.clearfix {
-  clear: both;
-  *zoom: 1;
-}
-
-.container {
-  width: 960px;
-  margin: 0 auto;
-  padding-left: 30px;
-  padding-right: 30px;
-  /*background-color: #FFF;*/
-}
+/*.container {*/
+  /*width: 960px;*/
+  /*margin: 0 auto;*/
+  /*padding-left: 30px;*/
+  /*padding-right: 30px;*/
+  /*[>background-color: #FFF;<]*/
+/*}*/
 
 section {
   float: left;
