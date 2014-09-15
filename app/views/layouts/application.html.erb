@@ -32,7 +32,8 @@
                     <%= link_to user_path(current_user),
                       class: "dropdown-toggle",
                       data: {toggle: "dropdown"} do %>
-                      <%= current_user.nickname %><span class="caret"></span>
+                      <%= current_user.nickname %>
+                      <span class="caret"></span>
                     <% end %>
                     <ul class="dropdown-menu">
                       <li><%= link_to "Home", "#" %></li><!--

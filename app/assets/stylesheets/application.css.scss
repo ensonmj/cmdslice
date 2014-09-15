@@ -21,13 +21,13 @@ pre, code {
   font-family: "Source Code Pro", Inconsolata, Terminal, "Courier New", Courier, monospace;
 }
 
-/*form {*/
-  /*border: 1px solid #c6c7cc;*/
-  /*border-radius: 5px;*/
-  /*font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-  /*overflow: hidden;*/
-  /*width: 240px;*/
-/*}*/
+form {
+  border: 1px solid #c6c7cc;
+  border-radius: 5px;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  width: 240px;
+}
 
 fieldset {
   padding: 0;
@@ -59,6 +59,8 @@ input {
 
 .navbar-search {
   display: inline-block;
+  padding: 0 20px;
+  border: 0;
 }
 
 .navbar-account {
@@ -90,18 +92,9 @@ aside {
 .stat {
   margin-bottom: 18px;
   .title {
-    margin: 0;
-    padding: 6px 10px;
-    border-bottom: 1px solid #c6c7cc;
     text-align: center;
-    background: #f5f5f5;
   }
-  .content {
-    padding: 6px 10px;
-    border-top: 0;
-    background: #fff;
-  }
-  ul.content{
+  ul {
     list-style: disc;
     padding-left: 30px;
   }

@@ -1,6 +1,8 @@
-<div class="stat">
-  <h4 class="title">Site Stat</h4>
-  <ul class="content">
+<div class="panel panel-default stat">
+  <div class="panel-heading">
+    <h4 class="panel-title title">Site Stat</h4>
+  </div>
+  <ul class="panel-body">
     <li><%= pluralize(User.all.count, "user") %></li>
     <li><%= pluralize(Slice.all.count, "slice") %></li>
     <li><%= pluralize(Comment.all.count, "comment") %></li>
