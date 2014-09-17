@@ -1,3 +1,13 @@
 <%= render "form" %>
 
-<%= link_to "Back", slices_path %>
+<%= content_for :tip do %>
+  <div class="panel panel-default stat">
+    <div class="panel-heading">
+      <h4 class="panel-title title">Tips</h4>
+    </div>
+    <ul class="panel-body">
+      <li>We love <a href="help.github.com/articles/github-flavored-markdown">Github Flavored Markdown</a></li>
+      <li>Markdown now has a <a href="commonmark.org">spec</a></li>
+    </ul>
+  </div>
+<% end %>
