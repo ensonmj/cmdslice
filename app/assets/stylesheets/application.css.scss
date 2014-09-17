@@ -1,11 +1,13 @@
 /*
- *= require codemirror
  *= require highlight/github
  *= require_tree .
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "pagedown_bootstrap";
 
 body {
   width: 100%;
@@ -18,14 +20,6 @@ pre, code {
   margin: 0;
   border: 0;
   font-family: "Source Code Pro", Inconsolata, Terminal, "Courier New", Courier, monospace;
-}
-
-form {
-  border: 1px solid #c6c7cc;
-  border-radius: 5px;
-  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  overflow: hidden;
-  width: 240px;
 }
 
 fieldset {

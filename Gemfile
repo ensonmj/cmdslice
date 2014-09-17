@@ -45,7 +45,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'marked-rails'
-gem 'codemirror-rails'
+#gem 'codemirror-rails'
 
 gem 'omniauth-github'
 gem 'omniauth-identity'
@@ -54,6 +54,8 @@ gem 'settingslogic'
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'font-awesome-sass'
+gem 'pagedown-bootstrap-rails'
 
 # Use debugger
 gem 'byebug', group: [:development, :test]
