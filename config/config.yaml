@@ -1,5 +1,5 @@
 defaults: &defaults
-  google_analytics_key: ""
+  google_analytics_key: "UA-32150918-2"
   github_token: ""
   github_secret: ""
 
