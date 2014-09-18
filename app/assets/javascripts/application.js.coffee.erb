@@ -9,28 +9,7 @@
 
 #pagedown converter
 window.mdc = new Markdown.getSanitizingConverter()
-Markdown.Extra.init(window.mdc, {extensions: "all", highlighter:"highlight", "table_class"})
-
-#markdown output
-$ ->
-  $(".se_text").each (i, b) ->
-    b.innerHTML = mdc.makeHtml(b.innerHTML)
-
-#pagedown editor
-$ ->
-  $("textarea#wmd-input").ready ->
-    help =
-      handler: () ->
-        window.open("http://spec.commonmark.org")
-        return false
-      title: "<%= I18n.t("components.markdown_editor.help", default: "Markdown Editing Help") %>"
-    editor = new Markdown.Editor(window.mdc, "", help)
-    editor.run()
-
-#highlight
-$ ->
-  $("pre code").each (i, e) ->
-    hljs.highlightBlock(e)
+Markdown.Extra.init(window.mdc, {highlighter:"highlight", table_class: "table table-striped"})
 
 #<!-- google universal analytics -->
 ((i, s, o, g, r, a, m) ->
@@ -52,4 +31,28 @@ $ ->
 ga "create", "<%= Settings.google_analytics_key %>", "auto"
 
 $ ->
+  # google analytics
   ga "send", "pageview", window.location.pathname
+
+  #markdown output
+  $(".se_text").each (i, e) ->
+    $(e).html(mdc.makeHtml($(e).html()))
+
+  #highlight
+  $("pre code").each (i, e) ->
+    hljs.highlightBlock e
+
+  #pagedown editor
+  $("textarea.wmd-input").each (i, e) ->
+    attr = $(e).attr("id").split("wmd-input")[1]
+    help =
+      handler: () ->
+        window.open "http://spec.commonmark.org"
+        return false
+      title: "<%= I18n.t("components.markdown_editor.help", default: "Markdown Editing Help") %>"
+    editor = new Markdown.Editor window.mdc, attr, help
+    editor.hooks.chain("onPreviewRefresh", () ->
+      $("pre code").each (i, e) ->
+        hljs.highlightBlock e
+    )
+    editor.run()
