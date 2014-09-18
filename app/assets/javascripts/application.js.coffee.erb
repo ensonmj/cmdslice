@@ -3,23 +3,34 @@
 #= require jquery.turbolinks
 #= require turbolinks
 #= require_tree .
-#= require marked
 #= require highlight/highlight.pack
 #= require bootstrap-sprockets
 #= require pagedown_bootstrap
-#= require pagedown_init
 
-#<!-- marked -->
-$(document).ready ->
-  blocks = document.querySelectorAll(".se_text")
-  Array::forEach.call blocks, (b) ->
-    b.innerHTML = marked(b.innerHTML)
+#pagedown converter
+window.mdc = new Markdown.getSanitizingConverter()
+Markdown.Extra.init(window.mdc, {extensions: "all", highlighter:"highlight", "table_class"})
 
-#<!-- highlight -->
-$(document).ready ->
-  blocks = document.querySelectorAll("pre code")
-  Array::forEach.call blocks, (b) ->
-    hljs.highlightBlock b
+#markdown output
+$ ->
+  $(".se_text").each (i, b) ->
+    b.innerHTML = mdc.makeHtml(b.innerHTML)
+
+#pagedown editor
+$ ->
+  $("textarea#wmd-input").ready ->
+    help =
+      handler: () ->
+        window.open("http://spec.commonmark.org")
+        return false
+      title: "<%= I18n.t("components.markdown_editor.help", default: "Markdown Editing Help") %>"
+    editor = new Markdown.Editor(window.mdc, "", help)
+    editor.run()
+
+#highlight
+$ ->
+  $("pre code").each (i, e) ->
+    hljs.highlightBlock(e)
 
 #<!-- google universal analytics -->
 ((i, s, o, g, r, a, m) ->
@@ -40,34 +51,5 @@ $(document).ready ->
 
 ga "create", "<%= Settings.google_analytics_key %>", "auto"
 
-$(document).ready ->
+$ ->
   ga "send", "pageview", window.location.pathname
-
-##<!-- marked -->
-#$(document).ready(function(){
-  #var blocks = document.querySelectorAll('.se_text');
-  #Array.prototype.forEach.call(blocks, function(b){
-    #b.innerHTML = marked(b.innerHTML);
-  #});
-#});
-
-##<!-- highlight -->
-#$(document).ready(function(){
-  #var blocks = document.querySelectorAll("pre code");
-  #Array.prototype.forEach.call(blocks, function(b){
-    #hljs.highlightBlock(b);
-  #});
-#});
-
-##<!-- pagedown -->
-#$("textarea.wmd-input").each
-
-##<!-- google universal analytics -->
-#(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
-  #(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-#m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-#})(window,document,"script","//www.google-analytics.com/analytics.js","ga");
-#ga("create", "<%= Settings.google_analytics_key %>", "auto");
-#$(document).ready(function(){
-  #ga("send", "pageview", window.location.pathname);
-#});
