@@ -27,34 +27,24 @@
             </form>
             <div class="navbar-account">
               <ul class="nav nav-pills">
-                <% if current_user %>
-                  <li class="dropdown">
-                    <%= link_to user_path(current_user),
-                      class: "dropdown-toggle",
-                      data: {toggle: "dropdown"} do %>
-                      <%= current_user.nickname %>
-                      <span class="caret"></span>
-                    <% end %>
-                    <ul class="dropdown-menu">
+                <li class="dropdown">
+                  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <% if current_user %>
                       <li><%= link_to "Home", user_path(current_user) %></li><!--
                       --><li><%= link_to "Profile", "#" %></li><!--
                       --><li><%= link_to "Message", "#" %></li><!--
                       --><li class="divider"></li><!--
                       --><li><%= link_to "Log out", "/account/logout" %></li>
-                    </ul>
-                  </li>
-                <% else %>
-                  <li class="dropdown">
-                    <%= link_to "#", class: "dropdown-toggle",
-                      data: {toggle: "dropdown"} do %>
-                      Account<span class="caret"></span>
-                    <% end %>
-                    <ul class="dropdown-menu">
+                    <% else %>
                       <li><%= link_to "Log in", "/account/login" %></li><!--
                       --><li><%= link_to "Sign up", "/account/signup" %></li>
+                    <% end %>
                     </ul>
                   </li>
-                <% end %>
               </ul>
             </div>
           </div>
