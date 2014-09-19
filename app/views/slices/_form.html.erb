@@ -2,16 +2,15 @@
   <%= render partial: "shared/err", locals: {res: @slice} %>
 
   <div class="title">
-    <%= f.text_field :title, class: "span1", required: true, placeholder: "Title" %>
+    <%= f.text_field :title, class: "form-control", required: true, placeholder: "Title" %>
   </div>
 
-  <div class="text">
-    <div id="wmd-button-bar-slice"></div>
-    <%= f.text_area :text, class: "wmd-input", id: "wmd-input-slice" %>
-    <div class="wmd-preview" id="wmd-preview-slice"></div>
-  </div>
-
-  <p>
+  <div class="wmd-group">
+    <div class="wmd-text">
+      <%#<div id="wmd-button-bar-slice"></div>%>
+      <%= f.text_area :text, class: "wmd-input form-control", id: "wmd-input-slice", placeholder: "Markdown here, please see example right." %>
+      <div class="wmd-preview" id="wmd-preview-slice"></div>
+    </div>
     <%= f.submit class: "btn btn-success"%>
-  </p>
+  </div>
 <% end %>

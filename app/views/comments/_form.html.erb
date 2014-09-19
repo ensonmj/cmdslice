@@ -1,8 +1,9 @@
 <%= form_for([@slice, @slice.comments.build]) do |f| %>
-  <p>
-    <%= f.text_area :body, placeholder: "What's your opinion?" %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="wmd-group">
+    <div class="wmd-text">
+      <%= f.text_area :body, class: "wmd-input", id: "wmd-input-comment", placeholder: "What's your opinion?" %>
+      <div class="wmd-preview" id="wmd-preview-comment"></div>
+    </div>
+    <%= f.submit class: "btn btn-success"%>
+  </div>
 <% end %>

@@ -5,8 +5,6 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
 @import "pagedown_bootstrap";
 
 body {
@@ -34,31 +32,39 @@ input {
   margin: 0;
 }
 
-.navbar {
-  max-height: 40px;
-  border-radius: 0;
-  background-color: #666;
+textarea {
+  resize: none;
 }
 
-.site-logo {
+.navbar {
+  border-radius: 0;
+  background-color: #666;
   a {
-    color: #FFF;
-    font-weight: 600;
-    &:hover {
-      color: #ff7b29;
+    border-radius: 0;
+  }
+
+  .site-logo {
+    a {
+      color: #FFF;
+      font-weight: 600;
+      &:hover {
+        color: #ff7b29;
+      }
     }
+  }
+
+  .navbar-search {
+    display: inline-block;
+    padding: 0 20px;
+    border: 0;
+  }
+
+  .navbar-account {
+    display: inline-block;
   }
 }
 
-.navbar-search {
-  display: inline-block;
-  padding: 0 20px;
-  border: 0;
-}
 
-.navbar-account {
-  display: inline-block;
-}
 
 .top-fixed {
   clear: both;
@@ -89,5 +95,14 @@ aside {
   ul {
     list-style: disc;
     padding-left: 30px;
+  }
+}
+
+.wmd-group {
+  .wmd-input {
+    height: 160px;
+  }
+  .wmd-preview {
+    margin: 0 0 10px;
   }
 }

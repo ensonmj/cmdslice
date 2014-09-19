@@ -54,7 +54,7 @@ gem 'settingslogic'
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-gem 'font-awesome-sass'
+#gem 'font-awesome-sass'
 gem 'pagedown-bootstrap-rails'
 
 # Use debugger
