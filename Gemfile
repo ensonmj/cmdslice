@@ -64,6 +64,11 @@ gem 'chunky_png', group: :development
 gem 'byebug', group: [:development, :test]
 gem 'pry-rails', group: :development
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 # gems for deployment in heroku
 group :production do
   gem 'pg'
