@@ -55,15 +55,10 @@
     <header class="top-fixed">
       <% if flash[:notice] %>
         <p><%= flash[:notice] %></p><br>
-      <% else %>
-        <p>
-          好记性不如烂笔头<br>
-          The palest ink is better than the best memory.
-        </p>
       <% end %>
     </header>
 
-    <div class="clearfix container">
+    <div class="container">
       <section>
         <%= yield %>
       </section>
