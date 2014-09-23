@@ -1,6 +1,6 @@
 class SlicesController < ApplicationController
   def index
-    @slices = Slice.all
+    @slices = Slice.order("updated_at desc").page(params[:page])
   end
 
   def create
@@ -23,6 +23,7 @@ class SlicesController < ApplicationController
 
   def show
     @slice = Slice.find(params[:id])
+    @comments = @slice.comments.order("created_at").page(params[:page])
   end
 
   def update

@@ -1,5 +1,6 @@
-<% @user.slices.each do |slice| %>
+<% @slices.each do |slice| %>
   <div class="slice">
     <%= render slice %>
   </div>
 <% end %>
+<%= paginate @slices %>

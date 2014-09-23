@@ -5,10 +5,11 @@
 <%= link_to "Edit", edit_slice_path(@slice) %>
 
 <div class="comments-box">
-  <div class="comments-stat"><%= pluralize(@slice.comments.count, "comment") %></div>
+  <div class="comments-stat"><%= pluralize(@comments.count, "comment") %></div>
   <div class="comments">
-    <%= render @slice.comments %>
+    <%= render @comments %>
   </div>
+  <%= paginate @comments %>
 </div>
 
 <%= render "comments/form" %>

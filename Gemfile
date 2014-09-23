@@ -60,6 +60,8 @@ gem 'pagedown-bootstrap-rails'
 gem 'sprite-factory', group: :development
 gem 'chunky_png', group: :development
 
+gem 'kaminari'
+
 # Use debugger
 gem 'byebug', group: [:development, :test]
 gem 'pry-rails', group: :development
