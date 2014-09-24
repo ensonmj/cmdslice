@@ -8,8 +8,7 @@
 @import "pagedown_bootstrap";
 
 body {
-  width: 100%;
-  height: 100%;
+  padding-top: 70px;
   background: #e5e5e5;
   font-family: "Helvetica Neue","DejaVu Sans",STHeiti,Verdana,Helvetica,Arial,"Microsoft Yahei",sans-serif;
 }
@@ -64,20 +63,13 @@ textarea {
   }
 }
 
-.top-fixed {
-  clear: both;
-  margin: 70px auto 20px;
-}
-
 section {
   float: left;
-  margin: 0 1.5%;
-  width: 65%;
+  width: 70%;
 }
 
 aside {
   float: right;
-  margin: 0 1.5%;
   width: 28%;
 }
 

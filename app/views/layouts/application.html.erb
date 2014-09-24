@@ -52,13 +52,9 @@
       </div>
     </div>
 
-    <header class="top-fixed">
-      <% if flash[:notice] %>
-        <p><%= flash[:notice] %></p><br>
-      <% end %>
-    </header>
-
     <div class="container">
+      <%= render "shared/flash" %>
+
       <section>
         <%= yield %>
       </section>

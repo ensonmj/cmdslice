@@ -5,8 +5,7 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(request.env['omniauth.auth'])
     session[:user_id] = user.id
-    flash[:notice] = "Welcome #{user.nickname}"
-    redirect_to user_path(user), notice: "Signed in!"
+    redirect_to user_path(user), notice: "Welcome #{user.nickname}"
   end
 
   def destroy
