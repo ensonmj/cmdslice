@@ -56,3 +56,12 @@ $ ->
         hljs.highlightBlock e
     )
     editor.run()
+
+$(document).on "ajaxSuccess", ->
+  #markdown output
+  $(".se_text").each (i, e) ->
+    $(e).html(mdc.makeHtml($(e).html()))
+
+  #highlight
+  $("pre code").each (i, e) ->
+    hljs.highlightBlock e

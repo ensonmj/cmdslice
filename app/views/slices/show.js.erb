@@ -1,0 +1,2 @@
+$("#comments-box>.comments").html("<%= j(render (@comments)) %>")
+$("#comments-box>.pagination").html("<%= j(paginate(@comments, remote: true)) %>")

@@ -1,6 +1,6 @@
-<% @slices.each do |slice| %>
-  <div class="slice">
-    <%= render slice %>
+<div class="slices-box" id="slices-box">
+  <div class="slices">
+    <%= render @slices %>
   </div>
-<% end %>
-<%= paginate @slices %>
+  <%= paginate @slices, remote: true %>
+</div>

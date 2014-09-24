@@ -1,13 +1,16 @@
-<%= link_to slice_path(slice) do %>
-  <div class="se_title">
-    <%= slice.title %>
-  </div>
-<% end %>
+<div class="slice">
+  <%= link_to slice_path(slice) do %>
+    <div class="se_title">
+      <%= slice.title %>
+    </div>
+  <% end %>
 
-<div class="se_text">
+  <div class="se_text">
+<%#remove leading spaces%>
 <%= slice.text %>
-</div>
+  </div>
 
-<div class="se_note" >
-  <%= slice.note %>
+  <%#<div class="se_note" >%>
+    <%#= slice.note %>
+  <%#</div>%>
 </div>

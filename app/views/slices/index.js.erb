@@ -1,0 +1,2 @@
+$("#slices-box>.slices").html("<%= j(render(@slices)) %>")
+$("#slices-box>.pagination").html("<%= j(paginate(@slices, remote:true)) %>")
