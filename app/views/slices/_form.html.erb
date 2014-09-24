@@ -8,8 +8,12 @@
   <div class="wmd-group">
     <div class="wmd-text">
       <%#<div id="wmd-button-bar-slice"></div>%>
-      <%= f.text_area :text, class: "wmd-input form-control", id: "wmd-input-slice", placeholder: "Markdown here, please see example right." %>
+      <%= f.text_area :text, class: "wmd-input form-control",
+        id: "wmd-input-slice",
+        placeholder: "Code here, please see example on the right." %>
       <div class="wmd-preview" id="wmd-preview-slice"></div>
+      <%= f.text_area :note, class: "wmd-input form-control",
+        id: "wmd-input-note", placeholder: "Note, also support Markdown." %>
     </div>
     <%= f.submit class: "btn btn-success"%>
   </div>

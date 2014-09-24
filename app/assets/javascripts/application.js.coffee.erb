@@ -35,7 +35,7 @@ $ ->
   ga "send", "pageview", window.location.pathname
 
   #markdown output
-  $(".se_text").each (i, e) ->
+  $(".se_mkd").each (i, e) ->
     $(e).html(mdc.makeHtml($(e).html()))
 
   #highlight
@@ -59,7 +59,7 @@ $ ->
 
 $(document).on "ajaxSuccess", ->
   #markdown output
-  $(".se_text").each (i, e) ->
+  $(".se_mkd").each (i, e) ->
     $(e).html(mdc.makeHtml($(e).html()))
 
   #highlight

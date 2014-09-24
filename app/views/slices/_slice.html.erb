@@ -5,12 +5,12 @@
     </div>
   <% end %>
 
-  <div class="se_text">
+  <div class="se_mkd">
 <%#remove leading spaces%>
 <%= slice.text %>
   </div>
 
-  <%#<div class="se_note" >%>
-    <%#= slice.note %>
-  <%#</div>%>
+  <div class="se_mkd se_note" style=<%= note_style if defined? note_style %>>
+<%= slice.note %>
+  </div>
 </div>
