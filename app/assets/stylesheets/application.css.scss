@@ -28,7 +28,6 @@ fieldset {
 input {
   border-radius: 5px;
   font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0;
 }
 
 textarea {
@@ -38,28 +37,17 @@ textarea {
 .navbar {
   border-radius: 0;
   background-color: #666;
-  a {
-    border-radius: 0;
-  }
+  font-size: 16px;
 
   .site-logo {
     a {
       color: #FFF;
+      font-size: 18px;
       font-weight: 600;
       &:hover {
         color: #ff7b29;
       }
     }
-  }
-
-  .navbar-search {
-    display: inline-block;
-    padding: 0 20px;
-    border: 0;
-  }
-
-  .navbar-account {
-    display: inline-block;
   }
 }
 

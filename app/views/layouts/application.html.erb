@@ -8,29 +8,35 @@
     <%= csrf_meta_tags %>
   </head>
   <body data-controller-name="<%= controller_name %>">
-    <div class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-fixed-top collapse navbar-collapse" role="navigation">
       <div class="navbar-inner">
         <div class="container">
-          <ul class="navbar-left nav nav-pills col-md-5">
-            <li class="active"><%= link_to "Share", "#" %></li><!--
-            --><li><%= link_to "Ask", "#" %></li><!--
-            --><li><%= link_to "Award", "#", style: "visibility: hidden" %></li>
+          <ul class="navbar-left nav nav-pills navbar-nav col-md-5">
+            <li><%= link_to "Share", "#", class: "navbar-link" %></li><!--
+            --><li><%= link_to "Ask", "#", class: "navbar-link" %></li><!--
+            --><li><%= link_to "Award", "#", class: "navbar-link",
+            style: "visibility: hidden" %></li>
           </ul>
           <div class="site-logo col-md-2">
             <%= link_to "CodeSlice", "/", class: "navbar-brand" %>
           </div>
-          <div class="navbar-right">
-            <form action="#" class="navbar-search" method="get">
-              <input type="text" name="q" class="form-control"
-              value="<%= params[:q] %>" placeholder="search"
-              disabled >
+          <div class="navbar-right row">
+            <form action="#" class="navbar-form col-md-9" method="get"
+              role="search">
+              <div class="form-group">
+                <input type="text" class="form-control"
+                  name="q" placeholder="Search" disabled>
+              </div>
             </form>
-            <div class="navbar-account">
-              <ul class="nav nav-pills">
+            <div class="col-md-3">
+              <ul class="nav nav-pills navbar-nav">
                 <li class="dropdown">
-                  <button type="button" class="btn <%= if  current_user then "btn-info" else "btn-default" end %> dropdown-toggle" data-toggle="dropdown">
-                    <span class="glyphicon glyphicon-user"></span>
-                    <span class="caret"></span>
+                  <button type="button"
+                    class="navbar-btn btn
+                    <%= if current_user then "btn-info" else "btn-default" end %>
+                      dropdown-toggle" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-user"></span>
+                      <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu">
                     <% if current_user %>
@@ -43,14 +49,14 @@
                       <li><%= link_to "Log in", "/account/login" %></li><!--
                       --><li><%= link_to "Sign up", "/account/signup" %></li>
                     <% end %>
-                    </ul>
-                  </li>
+                  </ul>
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </nav>
 
     <div class="container">
       <%= render "shared/flash" %>
