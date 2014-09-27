@@ -30,6 +30,19 @@ Markdown.Extra.init(window.mdc, {highlighter:"highlight", table_class: "table ta
 
 ga "create", "<%= Settings.google_analytics_key %>", "auto"
 
+# markdwon and highlight on every ajax response
+# ajaxSuccess can only registered on global
+$(document).on "ajaxSuccess", ->
+  #markdown output
+  $(".se_mkd").each (i, e) ->
+    $(e).html(mdc.makeHtml($(e).html()))
+
+  #highlight
+  $("pre code").each (i, e) ->
+    hljs.highlightBlock e
+
+# ready event called every time when non-ajax request get handled by turbolinks
+# so register event in the ready event will lead to memory leak!!!
 $ ->
   # google analytics
   ga "send", "pageview", window.location.pathname
@@ -56,12 +69,3 @@ $ ->
         hljs.highlightBlock e
     )
     editor.run()
-
-$(document).on "ajaxSuccess", ->
-  #markdown output
-  $(".se_mkd").each (i, e) ->
-    $(e).html(mdc.makeHtml($(e).html()))
-
-  #highlight
-  $("pre code").each (i, e) ->
-    hljs.highlightBlock e
