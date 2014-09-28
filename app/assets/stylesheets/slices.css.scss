@@ -1,6 +1,7 @@
 // Place all the styles related to the slices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "globalvars";
 
 //new
 .code-example {
@@ -9,7 +10,7 @@
 
 //index and show
 .slice {
-  margin-bottom: 15px;
+  margin-bottom: $margin-bottom;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   .se_title {
     padding: 6px 10px;

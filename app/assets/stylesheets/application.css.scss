@@ -1,16 +1,25 @@
 /*
  *= require highlight/github
- *= require_tree .
  */
 
 @import "bootstrap-sprockets";
+@import "codeslice/variables";
 @import "bootstrap";
+@import "codeslice/theme";
 @import "pagedown_bootstrap";
+
+@import "globalvars";
+@import "users";
+@import "avatars";
+@import "sessions";
+@import "identities";
+@import "slices";
+@import "comments";
+
 
 body {
   padding-top: 70px;
   background: #e5e5e5;
-  font-family: "Helvetica Neue","DejaVu Sans",STHeiti,Verdana,Helvetica,Arial,"Microsoft Yahei",sans-serif;
 }
 
 pre, code {
@@ -26,8 +35,7 @@ fieldset {
 }
 
 input {
-  border-radius: 5px;
-  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-radius: 4px;
 }
 
 textarea {
@@ -35,7 +43,7 @@ textarea {
 }
 
 .navbar {
-  background-color: #666;
+  /*background-color: #666;*/
   .navbar-brand {
     color: #FFF;
     &:hover {
@@ -45,7 +53,7 @@ textarea {
 }
 
 .stat {
-  margin-bottom: 18px;
+  margin-bottom: $margin-bottom;
   .title {
     text-align: center;
   }

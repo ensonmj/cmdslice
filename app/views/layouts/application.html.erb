@@ -21,27 +21,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <button type="button" class="navbar-toggle">
-            <span class="glyphicon glyphicon-search"></span>
-            <span class="sr-only">Toggle search</span>
-          </button>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Share", "#", class: "active navbar-link" %></li><!--
             --><li><%= link_to "Ask", "#", class: "navbar-link" %></li><!--
             --><li><%= link_to "Award", "#", class: "navbar-link",
-            style: "visibility: hidden" %></li>
+            style: "display: none" %></li>
           </ul>
           <div class="navbar-right row">
-            <form action="#" class="navbar-form col-xs-9" method="get"
+            <form action="#" class="navbar-form col-sm-9" method="get"
               role="search">
-              <div class="form-group">
-                <input type="text" class="form-control"
-                  name="q" placeholder="Search" disabled>
-              </div>
+              <input type="text" class="form-control"
+                name="q" placeholder="Search" disabled>
             </form>
-            <div class="col-xs-3">
+            <div class="col-sm-3">
               <ul class="nav navbar-nav">
                 <li class="dropdown">
                   <button type="button"
