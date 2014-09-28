@@ -68,7 +68,7 @@ gem 'pry-rails', group: :development
 
 gem 'puma'
 
-gem 'cancancan'
+gem 'pundit'
 
 group :development do
   gem 'better_errors'

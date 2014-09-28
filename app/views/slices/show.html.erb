@@ -2,7 +2,7 @@
   <%= render @slice %>
 </div>
 <%= link_to "Back", slices_path %>
-<%= link_to "Edit", edit_slice_path(@slice) %>
+<%= link_to "Edit", edit_slice_path(@slice) if policy(@slice).update? %>
 
 <div class="comments-box" id="comments-box">
   <div class="comments-stat"><%= pluralize(@comments.count, "comment") %></div>

@@ -1,4 +1,6 @@
 class SlicesController < ApplicationController
+  after_action :verify_authorized, :except => [:index, :show]
+
   def index
     @slices = Slice.order("updated_at desc").page(params[:page])
   end
@@ -28,6 +30,7 @@ class SlicesController < ApplicationController
 
   def update
     @slice = Slice.find(params[:id])
+    authorize @slice
     if @slice.update(slice_params)
       redirect_to @slice
     else
