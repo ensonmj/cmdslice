@@ -66,6 +66,8 @@ gem 'kaminari'
 gem 'byebug', group: [:development, :test]
 gem 'pry-rails', group: :development
 
+gem 'puma'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
