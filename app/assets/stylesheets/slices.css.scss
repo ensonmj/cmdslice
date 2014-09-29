@@ -12,9 +12,15 @@
 .slice {
   margin-bottom: $margin-bottom;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  .se_title {
+  .se_header {
     padding: 6px 10px;
     background: #D0D0D0;
+    .se_info {
+      color: rgba(140, 160, 100, 0.7)
+    }
+    span {
+      padding: 0 2px;
+    }
   }
   .se_note {
     padding-top: 5px;

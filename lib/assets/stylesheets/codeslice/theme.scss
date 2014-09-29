@@ -93,7 +93,7 @@
 
 // Buttons ====================================================================
 .btn {
-  @extend codeslice;
+  @extend .codeslice;
   border: none;
   height: 34px;
 

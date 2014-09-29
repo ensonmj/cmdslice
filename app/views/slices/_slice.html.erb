@@ -1,16 +1,22 @@
 <div class="slice">
   <%= link_to slice_path(slice) do %>
-    <div class="se_title">
-      <%= slice.title %>
-    </div>
+    <header class="se_header">
+      <span><%= slice.title %></span>
+      <small class="se_info"><%= slice.user.nickname %></small>
+      <small class="se_info"><%= slice.updated_at %></small>
+      <%= select_icons_by_user(current_user, slice) %>
+    </header>
   <% end %>
 
   <div class="se_mkd">
-<%#remove leading spaces%>
+<%# remove leading spaces %>
 <%= slice.text %>
   </div>
 
-  <div class="se_mkd se_note" style=<%= note_style if defined? note_style %>>
+  <%# display note as default unless note_hidden is true %>
+  <% if(!defined? note_hidden or !note_hidden) %>
+    <div class="se_mkd se_note">
 <%= slice.note %>
-  </div>
+    </div>
+  <% end %>
 </div>

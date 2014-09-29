@@ -1,6 +1,6 @@
 <div class="slices-box" id="slices-box">
   <div class="slices">
-    <%= render @slices, :note_style => "display:none" %>
+    <%= render @slices, :note_hidden => true %>
   </div>
   <%= paginate @slices, remote: true %>
 </div>

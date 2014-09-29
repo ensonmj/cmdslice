@@ -8,19 +8,23 @@ class SlicesController < ApplicationController
   def create
     #render plain: params.inspect
     @slice = current_user.slices.new(slice_params)
+    authorize @slice
     if @slice.save
-      redirect_to @slice
+      redirect_to current_user
     else
+      flash[:error] = "Something error happened."
       render "new"
     end
   end
 
   def new
     @slice = Slice.new
+    authorize @slice
   end
 
   def edit
     @slice = Slice.find(params[:id])
+    authorize @slice
   end
 
   def show
@@ -32,7 +36,7 @@ class SlicesController < ApplicationController
     @slice = Slice.find(params[:id])
     authorize @slice
     if @slice.update(slice_params)
-      redirect_to @slice
+      redirect_to current_user
     else
       render "edit"
     end
@@ -40,9 +44,10 @@ class SlicesController < ApplicationController
 
   def destroy
     @slice = Slice.find(params[:id])
+    authorize @slice
     @slice.destroy
 
-    redirect_to slices_path
+    redirect_to current_user
   end
 
   private

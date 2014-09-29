@@ -1,7 +1,15 @@
 class SlicePolicy < ApplicationPolicy
-  # inherit user and record from ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      scope
+    end
+  end
+
+  def create?
+    return user
+  end
 
   def update?
-    return user
+    return user && record.user_id == user.id
   end
 end

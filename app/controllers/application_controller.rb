@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :current_user_got_comments
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   private
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -21,5 +23,11 @@ class ApplicationController < ActionController::Base
     else
       0
     end
+  end
+
+  # exception has query, record, and policy properties
+  def user_not_authorized(exception)
+    flash[:error] = "You are not authorized to perform this action, please log in or sign up."
+    redirect_to(login_path)
   end
 end

@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  after_action :verify_authorized, :except => [:index, :show]
+
   def create
     @slice = current_user.slices.find(params[:slice_id])
     @comment = @slice.comments.new(comment_params)
