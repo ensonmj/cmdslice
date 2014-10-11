@@ -19,3 +19,4 @@
 *.swo
 avatars.png
 avatars.scss
+.sass-cache/
