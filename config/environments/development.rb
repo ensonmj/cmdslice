@@ -35,6 +35,16 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  # BetterErrors
-  BetterErrors::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']
+  config.after_initialize do
+    # BetterErrors
+    BetterErrors::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']
+
+    # Bullet
+    Bullet.enable = true
+    #Bullet.alert = true
+    Bullet.add_footer = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+    Bullet.bullet_logger = true
+  end
 end

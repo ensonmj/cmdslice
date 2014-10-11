@@ -2,7 +2,7 @@ class SlicesController < ApplicationController
   after_action :verify_authorized, :except => [:index, :show]
 
   def index
-    @slices = Slice.order("updated_at desc").page(params[:page])
+    @slices = Slice.includes(:user).order("updated_at desc").page(params[:page])
   end
 
   def create
