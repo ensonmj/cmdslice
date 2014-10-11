@@ -1,5 +1,5 @@
 <%= form_tag "/auth/identity/register", class: "account-form" do %>
-  <%= render partial: "shared/err", res: @identity %>
+  <%= render "shared/err", res: @identity %>
 
   <fieldset class="account-info">
     <label>
