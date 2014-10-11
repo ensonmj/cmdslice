@@ -1,9 +1,10 @@
-<%= form_for([@slice, @slice.comments.build]) do |f| %>
+<%= simple_form_for([@slice, @slice.comments.build]) do |f| %>
   <div class="wmd-group">
     <div class="wmd-text">
-      <%= f.text_area :body, class: "wmd-input", id: "wmd-input-comment", placeholder: "What's your opinion?" %>
+      <%= f.input :body, label:false, placeholder: "What's your opinion?",
+        input_html: {class: "wmd-input", id: "wmd-input-comment"} %>
       <div class="wmd-preview" id="wmd-preview-comment"></div>
     </div>
-    <%= f.submit class: "btn btn-success"%>
+    <%= f.button :submit, class: "btn btn-success"%>
   </div>
 <% end %>
