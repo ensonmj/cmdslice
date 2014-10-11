@@ -4,4 +4,12 @@ class CommentPolicy < ApplicationPolicy
       scope
     end
   end
+
+  def create?
+    return user
+  end
+
+  def destroy?
+    return user && record.user_id == user.id
+  end
 end
