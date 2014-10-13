@@ -51,10 +51,10 @@
                       --><li><%= link_to "Profile", "#" %></li><!--
                       --><li><%= link_to "Message", "#" %></li><!--
                       --><li class="divider"></li><!--
-                      --><li><%= link_to "Log out", "/account/logout" %></li>
+                      --><li><%= link_to "Log out", logout_path %></li>
                     <% else %>
-                      <li><%= link_to "Log in", "/account/login" %></li><!--
-                      --><li><%= link_to "Sign up", "/account/signup" %></li>
+                      <li><%= link_to "Log in", login_path %></li><!--
+                      --><li><%= link_to "Sign up", signup_path %></li>
                     <% end %>
                   </ul>
                 </li>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get "/account/signup" => "sessions#new", :as => "signup"
+  get "/account/signup" => "identities#new", :as => "signup"
   get "/account/login" => "sessions#new", :as => "login"
   get "/account/logout" => "sessions#destroy", :as => "logout"
   match "/auth/:provider/callback" => "sessions#create", via: [:get, :post]
