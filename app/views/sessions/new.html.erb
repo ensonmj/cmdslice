@@ -4,11 +4,12 @@
   <%= link_to "Create an account", new_identity_path %> or login below.
 </p>
 
-<%= form_tag "/auth/identity/callback", class: "account-form" do %>
+<%= form_tag "/auth/identity/callback", class: "account-form",
+  "data-parsley-validate" => true do %>
   <fieldset class="account-info">
     <label>
       Email
-      <input type="text" name="auth_key" required>
+      <input type="email" name="auth_key" required data-parsley-trigger="change">
     </label>
     <label>
       Password
@@ -18,7 +19,7 @@
   <fieldset class="account-action">
     <input class="btn btn-success" type="submit" value="Login">
     <label>
-      <input type="checkbox" name="remember">Keep logged in
+      <input type="checkbox" name="remember">Remember me
     </label>
   </fieldset>
 <% end %>
