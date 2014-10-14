@@ -1,4 +1,8 @@
-<%= link_to "Sign in with Github", "/auth/github" %>
+<p>
+  <strong>Already have an account?</strong>
+  <%= link_to "Log in", login_path %> from here.
+</p>
+
 <%= form_tag "/auth/identity/register", class: "account-form" do %>
   <%= render "shared/err", res: @identity %>
 
