@@ -1,4 +1,4 @@
-<%= form_for @slice  do |f| %>
+<%= form_for @slice, html: {"data-parsley-validate" => true}  do |f| %>
   <%= render partial: "shared/err", locals: {res: @slice} %>
 
   <div class="title">
@@ -9,7 +9,7 @@
     <div class="wmd-text">
       <%#<div id="wmd-button-bar-slice"></div>%>
       <%= f.text_area :text, class: "wmd-input form-control",
-        id: "wmd-input-slice",
+        id: "wmd-input-slice", required: true,
         placeholder: "Code here, please see example on the right." %>
       <div class="wmd-preview" id="wmd-preview-slice"></div>
       <%= f.text_area :note, class: "wmd-input form-control",
