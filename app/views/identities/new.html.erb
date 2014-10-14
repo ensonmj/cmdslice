@@ -3,7 +3,8 @@
   <%= link_to "Log in", login_path %> from here.
 </p>
 
-<%= form_tag "/auth/identity/register", class: "account-form" do %>
+<%= form_tag "/auth/identity/register", class: "account-form",
+  "data-parsley-validate" => true do %>
   <%= render "shared/err", res: @identity %>
 
   <fieldset class="account-info">
@@ -13,7 +14,8 @@
     </label>
     <label>
       Email
-      <%= email_field_tag :email, @identity.try(:email), required: true %>
+      <%= email_field_tag :email, @identity.try(:email), required: true,
+        "data-parsley-trigger" => "change" %>
     </label>
     <label>
       Password
@@ -25,6 +27,6 @@
     </label>
   </fieldset>
   <fieldset class="account-action">
-    <input id="register" class="btn btn-success" type="submit" name="submit" value="Register" >
+    <input id="register" class="btn btn-success" type="submit" value="Register">
   </fieldset>
 <% end %>
