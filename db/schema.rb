@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901041031) do
+ActiveRecord::Schema.define(version: 20141015051221) do
 
   create_table "authentications", force: true do |t|
     t.string   "provider"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140901041031) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "auth_token"
   end
 
 end

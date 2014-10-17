@@ -7,9 +7,19 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :authentications
   has_many :slices, :dependent => :destroy
   has_many :comments#, :dependent => :destroy
+  before_create { generate_token(:auth_token) }
 
   def add_auth(auth)
     authentications.create(provider: auth[:provider], uid: auth[:uid])
+  end
+
+  # This method will take a column argument so that we can
+  # have multiple tokens later if need be.
+  def generate_token(column)
+    loop do
+      self[column] = SecureRandom.urlsafe_base64
+      break unless User.exists?(column => self[column])
+    end
   end
 
   class << self

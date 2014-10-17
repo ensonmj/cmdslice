@@ -9,7 +9,8 @@
   <fieldset class="account-info">
     <label>
       Email
-      <input type="email" name="auth_key" required data-parsley-trigger="change">
+      <%= email_field_tag :auth_key, nil, required: true,
+        "data-parsley-trigger" => "change" %>
     </label>
     <label>
       Password
@@ -19,7 +20,7 @@
   <fieldset class="account-action">
     <input class="btn btn-success" type="submit" value="Login">
     <label>
-      <input type="checkbox" name="remember">Remember me
+      <%= check_box_tag :remember_me %>Remember me
     </label>
   </fieldset>
 <% end %>
