@@ -5,22 +5,25 @@ require 'capistrano/setup'
 require 'capistrano/deploy'
 
 # Includes tasks from other gems included in your Gemfile
-#
-# For documentation on these, see for example:
-#
-#   https://github.com/capistrano/rvm
-#   https://github.com/capistrano/rbenv
-#   https://github.com/capistrano/chruby
-#   https://github.com/capistrano/bundler
-#   https://github.com/capistrano/rails
-#
-# require 'capistrano/rvm'
-# require 'capistrano/chruby'
+require 'capistrano/ssh_doctor'
+# set some rbenv variables anv validate rbenv_ruby
 require 'capistrano/rbenv'
+# will install rbenv ruby-build ruby bundler, depends on rbenv variables
+require 'capistrano/rbenv_install'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
+require 'capistrano/safe_deploy_to'
+# cap <stage> setup to create secrets.yml on remote
+# need local config/secrets.yml
+require 'capistrano/secrets_yml'
+# cap <stage> setup to create database.yml on remote
+# don't need local config/database.yml
+require 'capistrano/postgresql'
+require 'capistrano/faster_assets'
 require 'capistrano/puma'
+# cap <stage> puma:nginx_config to upload a nginx site config
+require 'capistrano/puma/nginx'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }

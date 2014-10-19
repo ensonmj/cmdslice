@@ -15,7 +15,10 @@ role :db,  %w{deploy@codeslice.me}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'codeslice.me', user: 'deploy', roles: %w{web app}#, my_property: :my_value
+server 'codeslice.me', user: 'deploy', roles: %w{web app db}, primary: :true,
+  ssh_options: {
+  port: 21314
+}
 
 # Custom SSH Options
 # ==================
@@ -24,11 +27,11 @@ server 'codeslice.me', user: 'deploy', roles: %w{web app}#, my_property: :my_val
 #
 # Global options
 # --------------
-#  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
+#set :ssh_options, {
+  #keys: %w(/home/ensonmj/.ssh/id_rsa),
+  #forward_agent: false,
+  #auth_methods: %w(publicekey password)
+#}
 #
 # And/or per server (overrides global)
 # ------------------------------------

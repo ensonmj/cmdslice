@@ -1,11 +1,11 @@
-env = ENV['RACK_ENV'] || ENV['RAILS_ENV']
+env = ENV['RAILS_ENV']
 case env
-when /development/i, /test/i
+when /development/i, /test/i, /staging/i
   source 'https://ruby.taobao.org'
 when /production/i
   source 'https://rubygems.org'
 else
-  source 'https://rubygems.org'
+  source 'https://ruby.taobao.org'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -44,9 +44,15 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano', require: false
+  gem 'capistrano-ssh-doctor', require: false
+  gem 'capistrano-rbenv-install', require: false
   gem 'capistrano-rbenv', require: false
-  gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-safe-deploy-to', require: false
+  gem 'capistrano-secrets-yml', require: false
+  gem 'capistrano-postgresql', require: false
+  gem 'capistrano-faster-assets', require: false
   gem 'capistrano3-puma', require: false
 end
 

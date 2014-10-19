@@ -20,3 +20,5 @@
 avatars.png
 avatars.scss
 .sass-cache/
+secrets.yml
+database.yml
