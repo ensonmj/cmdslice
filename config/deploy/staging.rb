@@ -1,4 +1,5 @@
 set :stage, :production
+set :puma_bind, %w(tcp://0.0.0.0:3001 unix://#{shared_path}/tmp/sockets/puma.sock)
 
 # Simple Role Syntax
 # ==================
@@ -17,10 +18,12 @@ role :db,  %w{localhost}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'localhost', user: 'deploy', roles: %w{web app db}, primary: true
-set :ssh_options, {
-  password: "deploy"
-}
+server 'localhost',
+  user: 'deploy',
+  roles: %w{web app db}, primary: true,
+  ssh_options: {
+    password: "deploy"
+  }
 
 
 # Custom SSH Options

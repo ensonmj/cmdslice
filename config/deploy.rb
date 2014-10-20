@@ -20,16 +20,16 @@ set :deploy_to, '/var/www/codeslice'
 # set :log_level, :debug
 
 # Default value for :pty is false
-set :pty, true
+set :pty, false # set true make sidekiq not started
 set :use_sudo, false
 
 # Default value for :linked_files is []
-# database.yml linked by capistrano-postgresql
-# secrets.yml linkeg by capistrano-secrets-yml
+# database.yml add to linked_files by capistrano-postgresql
+# secrets.yml add to linked_files by capistrano-secrets-yml
 #set :linked_files, %w{config/database.yml config/secrets.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{bin log tmp/cache tmp/pids tmp/sockets vendor/bundle}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
