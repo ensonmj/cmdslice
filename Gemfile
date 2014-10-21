@@ -62,8 +62,6 @@ gem 'marked-rails'
 gem 'omniauth-github'
 gem 'omniauth-identity'
 
-gem 'settingslogic'
-
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 #gem 'font-awesome-sass'
