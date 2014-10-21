@@ -45,19 +45,6 @@ set :puma_threads, [0, 16]
 set :puma_workers, 0
 set :puma_init_active_record, true # using ActiveRecord
 
-namespace :db do
-  desc "Runs rake db:seed"
-  task :seed => [:set_rails_env] do
-    on primary fetch(:migration_role) do
-      within release_path do
-        within rails_env: fetch(:rails_env) do
-          execute :rake, "db:seed"
-        end
-      end
-    end
-  end
-end
-
 namespace :deploy do
   desc 'Initial Deploy'
   task :initial do
@@ -87,7 +74,4 @@ namespace :deploy do
   after :finishing, :compile_assets
   after :finishing, :cleanup
   after :finishing, :restart
-  after :finished, :notify do
-    system("\\say Capistrano deployment completed! Good Job!")
-  end
 end
