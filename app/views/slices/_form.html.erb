@@ -1,5 +1,5 @@
 <%= form_for @slice, html: {"data-parsley-validate" => true}  do |f| %>
-  <%= render partial: "shared/err", locals: {res: @slice} %>
+  <%= render "shared/err", res: @slice %>
 
   <div class="title">
     <%= f.text_field :title, class: "form-control", required: true, placeholder: "Title" %>
