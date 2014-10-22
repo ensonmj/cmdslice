@@ -1,4 +1,16 @@
 #!/usr/bin/env ruby
+
+# Trace files load sequence
+#files=[]
+#TracePoint.trace(:line) do |tp|
+  #if tp.path =~ /codeslice/
+    #unless files.include? tp.path
+      #puts "#{tp.path}".inspect
+      #files.push(tp.path)
+    #end
+  #end
+#end
+
 APP_PATH = File.expand_path('../../config/application',  __FILE__)
 require_relative '../config/boot'
 require 'rails/commands'
