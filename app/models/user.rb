@@ -22,6 +22,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.now.utc
+    save!
+    UserMailer.password_reset(self).deliver
+  end
+
   class << self
     def from_omniauth(auth)
       locate_auth(auth) || locate_email(auth) || create_user(auth)
