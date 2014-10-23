@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     :with => /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
+  has_one :identity, :dependent => :destroy
   has_many :slices, :dependent => :destroy
   has_many :comments#, :dependent => :destroy
   before_create { generate_token(:auth_token) }
@@ -20,13 +21,6 @@ class User < ActiveRecord::Base
       self[column] = SecureRandom.urlsafe_base64
       break unless User.exists?(column => self[column])
     end
-  end
-
-  def send_password_reset
-    generate_token(:password_reset_token)
-    self.password_reset_sent_at = Time.now.utc
-    save!
-    UserMailer.password_reset(self).deliver
   end
 
   class << self
@@ -53,6 +47,8 @@ class User < ActiveRecord::Base
         user.authentications_attributes = [
           {provider: auth[:provider], uid: auth[:uid]}
         ]
+        # only affect user sign up with omniauth:identity
+        user.identity = Identity.find_by(email: user.email)
       end
     end
   end

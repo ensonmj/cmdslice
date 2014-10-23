@@ -6,10 +6,10 @@ class UserMailer < ActionMailer::Base
   #
   #   en.user_mailer.password_reset.subject
   #
-  def password_reset(user)
-    @user = user
-    email_with_name = "#{user.nickname} <#{user.email}>"
-    @greeting = "Hi #{user.nickname}"
+  def password_reset(identity)
+    @identity = identity
+    email_with_name = "#{identity.nickname} <#{identity.email}>"
+    @greeting = "Hi #{identity.nickname}"
     mail to: email_with_name, subject: "Password Reset"
   end
 end

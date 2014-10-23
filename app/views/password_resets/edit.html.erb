@@ -1,8 +1,8 @@
 <h1>Reset Password</h1>
 
-<%= form_for @user, url: password_reset_path(params[:id]),
+<%= form_for @identity, url: password_reset_path(params[:id]),
   html: { class: "account-form", "data-parsley-validate" => true } do |f| %>
-  <%= render "shared/err", res: @user %>
+  <%= render "shared/err", res: @identity %>
 
   <fieldset class="account-info">
     <label>
@@ -13,7 +13,7 @@
     <label>
       Password confirmation
       <%= f.password_field :password_confirmation, required: true,
-        "data-parsley-equalto" => "#user_password" %>
+        "data-parsley-equalto" => "#identity_password" %>
     </label>
   </fieldset>
   <fieldset class="account-action">
