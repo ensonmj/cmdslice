@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     :with => /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
+  has_one :identity, :dependent => :destroy
   has_many :slices, :dependent => :destroy
   has_many :comments#, :dependent => :destroy
   before_create { generate_token(:auth_token) }
@@ -46,6 +47,8 @@ class User < ActiveRecord::Base
         user.authentications_attributes = [
           {provider: auth[:provider], uid: auth[:uid]}
         ]
+        # only affect user sign up with omniauth:identity
+        user.identity = Identity.find_by(email: user.email)
       end
     end
   end
