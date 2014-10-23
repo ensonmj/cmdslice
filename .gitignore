@@ -22,3 +22,4 @@ avatars.scss
 .sass-cache/
 secrets.yml
 database.yml
+newrelic.yml
