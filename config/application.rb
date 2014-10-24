@@ -23,5 +23,6 @@ module Codeslice
     config.action_mailer.default_url_options = {
       host: Rails.application.secrets.mail_host
     }
+    config.action_mailer.delivery_method = :smtp
   end
 end

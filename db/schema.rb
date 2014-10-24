@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141023084342) do
+ActiveRecord::Schema.define(version: 20141024091909) do
 
   create_table "authentications", force: true do |t|
     t.string   "provider"
@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(version: 20141023084342) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.integer  "user_id"
+    t.string   "confirm_token"
+    t.datetime "confirm_sent_at"
+    t.datetime "confirmed_at"
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"

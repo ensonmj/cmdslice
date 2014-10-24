@@ -5,6 +5,11 @@ class Identity < OmniAuth::Identity::Models::ActiveRecord
     :with => /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
   validates_length_of :password, in: 6..20, on: :create
   belongs_to :user
+  before_create do
+    generate_token(:confirm_token)
+    self[:confirm_sent_at] = Time.now.utc
+  end
+  after_create { send_registration_confirm }
 
   # This method will take a column argument so that we can
   # have multiple tokens later if need be.
@@ -20,5 +25,14 @@ class Identity < OmniAuth::Identity::Models::ActiveRecord
     self.password_reset_sent_at = Time.now.utc
     save!
     UserMailer.password_reset(self).deliver
+  end
+
+  def send_registration_confirm
+    UserMailer.registration_confirm(self).deliver
+  end
+
+  def registration_confirm
+    self.confirmed_at = Time.now.utc
+    save!
   end
 end

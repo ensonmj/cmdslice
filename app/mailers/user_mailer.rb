@@ -8,8 +8,15 @@ class UserMailer < ActionMailer::Base
   #
   def password_reset(identity)
     @identity = identity
-    email_with_name = "#{identity.nickname} <#{identity.email}>"
     @greeting = "Hi #{identity.nickname}"
+    email_with_name = "#{identity.nickname} <#{identity.email}>"
     mail to: email_with_name, subject: "Password Reset"
+  end
+
+  def registration_confirm(identity)
+    @identity = identity
+    @greeting = "Hi #{identity.nickname}"
+    email_with_name = "#{identity.nickname} <#{identity.email}>"
+    mail to: email_with_name, subject: "Register confirm"
   end
 end

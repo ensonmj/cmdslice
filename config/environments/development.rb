@@ -15,11 +15,11 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   #config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-    :address => "localhost",
-    :port => 25,
-    :domain => "whatever.com"
+    address: Rails.application.secrets.mail_smtp_address,
+    port: Rails.application.secrets.mail_smtp_port,
+    domain: Rails.application.secrets.mail_smtp_domain,
   }
 
   # Print deprecation notices to the Rails logger.

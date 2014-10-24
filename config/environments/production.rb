@@ -63,11 +63,14 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => Rails.application.secrets.mail_address,
-    :port => 25,
-    :domain => Rails.application.secrets.mail_domain
+    address: Rails.application.secrets.mail_smtp_address,
+    port: Rails.application.secrets.mail_smtp_port,
+    domain: Rails.application.secrets.mail_smtp_domain,
+    user_name: Rails.application.secrets.mail_smtp_user_name,
+    password: Rails.application.secrets.mail_smtp_password,
+    authentication: Rails.application.secrets.mail_smtp_authentication,
+    enable_starttls_auto: Rails.application.secrets.mail_smtp_enable_starttls_auto
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
