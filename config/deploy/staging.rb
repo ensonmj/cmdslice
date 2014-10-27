@@ -1,5 +1,5 @@
 set :stage, :production
-set :puma_bind, %w(tcp://0.0.0.0:3001 unix://#{shared_path}/tmp/sockets/puma.sock)
+set :puma_bind, %W(tcp://0.0.0.0:3001 unix://#{shared_path}/tmp/sockets/puma.sock)
 
 # Simple Role Syntax
 # ==================
