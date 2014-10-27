@@ -1,5 +1,11 @@
 <p>
-<%= @greeting %>
-To complete your registration access the URL below.
-<%= link_to 'Confirm', registration_confirm_url(@identity.confirm_token) %>
+  <h3>
+    <%= @greeting %>
+  </h3>
+  <p>
+    To complete your registration access the URL below.
+  </p>
+  <p>
+    <%= link_to 'Confirm', registration_confirm_url(@identity.confirm_token) %>
+  </p>
 <p>
