@@ -1,11 +1,14 @@
 <p>
   <h3>
-    <%= @greeting %>
+    <%= @greeting %>,
   </h3>
   <p>
-    To complete your registration access the URL below.
+    To complete your registration click the URL below.
   </p>
   <p>
-    <%= link_to 'Confirm', registration_confirm_url(@identity.confirm_token) %>
+    <%= link_to 'Confirm your registration', registration_confirm_url(@identity.confirm_token) %>.
+  </p>
+  <p>
+    If you have not registered on <%= link_to "codeslice.me", root_url %>, please ignore this email.
   </p>
 <p>
