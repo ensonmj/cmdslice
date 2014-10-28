@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Tokenable
+
   validates_presence_of :nickname
   validates_uniqueness_of :email
   validates_format_of :email,
@@ -16,12 +18,12 @@ class User < ActiveRecord::Base
 
   # This method will take a column argument so that we can
   # have multiple tokens later if need be.
-  def generate_token(column)
-    loop do
-      self[column] = SecureRandom.urlsafe_base64
-      break unless User.exists?(column => self[column])
-    end
-  end
+  #def generate_token(column)
+    #loop do
+      #self[column] = SecureRandom.urlsafe_base64
+      #break unless User.exists?(column => self[column])
+    #end
+  #end
 
   class << self
     def from_omniauth(auth)

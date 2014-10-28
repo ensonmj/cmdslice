@@ -1,4 +1,6 @@
 class Identity < OmniAuth::Identity::Models::ActiveRecord
+  include Tokenable
+
   validates_presence_of :nickname
   validates_uniqueness_of :email
   validates_format_of :email,
@@ -10,15 +12,6 @@ class Identity < OmniAuth::Identity::Models::ActiveRecord
     self[:confirm_sent_at] = Time.now.utc
   end
   after_create { send_registration_confirm }
-
-  # This method will take a column argument so that we can
-  # have multiple tokens later if need be.
-  def generate_token(column)
-    loop do
-      self[column] = SecureRandom.urlsafe_base64
-      break unless Identity.exists?(column => self[column])
-    end
-  end
 
   def send_password_reset
     generate_token(:password_reset_token)
