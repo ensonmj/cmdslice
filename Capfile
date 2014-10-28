@@ -24,6 +24,7 @@ require 'capistrano/faster_assets'
 require 'capistrano/puma'
 # cap <stage> puma:nginx_config to upload a nginx site config
 require 'capistrano/puma/nginx'
+require 'new_relic/recipes'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
