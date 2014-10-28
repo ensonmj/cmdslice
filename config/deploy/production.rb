@@ -48,3 +48,7 @@ server 'codeslice.me',
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
+namespace :deploy do
+  after :updated, 'newrelic:notice_deployment'
+end
