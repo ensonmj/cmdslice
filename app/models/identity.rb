@@ -28,4 +28,8 @@ class Identity < OmniAuth::Identity::Models::ActiveRecord
     self.confirmed_at = Time.now.utc
     save!
   end
+
+  def confirmed?
+    !self.confirmed_at.nil?
+  end
 end

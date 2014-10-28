@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_got_comments
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from Pundit::NotConfirmedError, with: :user_not_confirmed
 
   private
   def current_user
@@ -27,7 +28,11 @@ class ApplicationController < ActionController::Base
 
   # exception has query, record, and policy properties
   def user_not_authorized(exception)
-    flash[:error] = "You are not authorized to perform this action, please log in or sign up."
-    redirect_to(login_path)
+    redirect_to login_path,
+      error: "You are not authorized to perform this action, please log in or sign up."
+  end
+
+  def user_not_confirmed(exception)
+    redirect_to user_path(exception.user), alert: "Please confirm your account."
   end
 end

@@ -16,7 +16,8 @@ class ApplicationPolicy
   end
 
   def create?
-    false
+    raise Pundit::NotConfirmedError.new(user) unless ConfirmService.confirmed?(user)
+    true
   end
 
   def new?
@@ -24,7 +25,8 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    raise Pundit::NotConfirmedError.new(user) unless ConfirmService.confirmed?(user)
+    true
   end
 
   def edit?
@@ -32,7 +34,8 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    raise Pundit::NotConfirmedError.new(user) unless ConfirmService.confirmed?(user)
+    true
   end
 
   def scope
@@ -49,6 +52,16 @@ class ApplicationPolicy
 
     def resolve
       scope
+    end
+  end
+end
+
+module Pundit
+  class NotConfirmedError < StandardError
+    attr_reader :user
+
+    def initialize(user)
+      @user = user
     end
   end
 end

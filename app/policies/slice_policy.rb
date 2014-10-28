@@ -6,10 +6,10 @@ class SlicePolicy < ApplicationPolicy
   end
 
   def create?
-    return user
+    user && super
   end
 
   def update?
-    return user && record.user_id == user.id
+    user && super && record.user_id == user.id
   end
 end

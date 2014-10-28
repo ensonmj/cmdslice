@@ -6,10 +6,10 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def create?
-    user
+    user && super
   end
 
   def destroy?
-    user && user.id == record.user_id
+    user && super && user.id == record.user_id
   end
 end
