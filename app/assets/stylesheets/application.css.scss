@@ -85,3 +85,49 @@ textarea {
     margin-bottom: 0;
   }
 }
+
+.account-form {
+  border: 1px solid #c6c7cc;
+  border-radius: 4px;
+  margin-bottom: $margin-bottom;
+  overflow: hidden;
+  width: 300px;
+
+  .err_msg {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #c6c7cc;
+    color: red;
+  }
+
+  .account-info {
+    padding: 10px 20px 0 20px;
+    label {
+      color: #395870;
+      display: block;
+      font-weight: bold;
+      margin-bottom: $margin-bottom;
+    }
+    input {
+      border: 1px solid #c6c7cc;
+      padding: 6px;
+      width: 100%;
+    }
+  }
+
+  .account-action {
+    background: #f0f0f2;
+    border-top: 1px solid #c6c7cc;
+    padding: 20px;
+    .btn {
+      font-weight: bold;
+      float: left;
+      padding: 8px 16px;
+    }
+    label {
+      color: #7c7c80;
+      font-size: 12px;
+      float: left;
+      margin: 10px 0 0 20px;
+    }
+  }
+}

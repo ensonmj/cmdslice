@@ -1,6 +1,6 @@
 <% if res && res.errors.any? %>
   <div class="err_msg">
-    <h2><%= pluralize(res.errors.count, "error") %> occured:</h2>
+    <h3 class="alert alert-danger"><%= pluralize(res.errors.count, "error") %> occured:</h3>
     <ul>
       <% res.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
