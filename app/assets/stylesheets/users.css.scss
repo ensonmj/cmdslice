@@ -5,11 +5,11 @@
 
 .user-btn {
   margin-bottom: $margin-bottom;
-  padding: 6px 12px;
   background: rgba(208, 208, 208, 0.5);
   .btn-group {
     width: 100%;
     .btn {
+      padding: 10px 12px;
       width:50%;
     }
   }
