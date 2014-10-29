@@ -16,15 +16,6 @@ class User < ActiveRecord::Base
     authentications.create(provider: auth[:provider], uid: auth[:uid])
   end
 
-  # This method will take a column argument so that we can
-  # have multiple tokens later if need be.
-  #def generate_token(column)
-    #loop do
-      #self[column] = SecureRandom.urlsafe_base64
-      #break unless User.exists?(column => self[column])
-    #end
-  #end
-
   class << self
     def from_omniauth(auth)
       locate_auth(auth) || locate_email(auth) || create_user(auth)
