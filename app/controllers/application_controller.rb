@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_user
-  helper_method :current_user_got_comments
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   rescue_from Pundit::NotConfirmedError, with: :user_not_confirmed
@@ -12,18 +11,6 @@ class ApplicationController < ActionController::Base
   private
   def current_user
     @current_user ||= User.find_by(auth_token: cookies[:auth_token]) if cookies[:auth_token]
-  end
-
-  def current_user_got_comments
-    if current_user
-      total = 0
-      current_user.slices.each do |slice|
-        total += slice.comments.count
-      end
-      total
-    else
-      0
-    end
   end
 
   # exception has query, record, and policy properties

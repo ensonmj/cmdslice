@@ -3,8 +3,8 @@
   <h4 class="panel-title title">User Stat</h4>
 </div>
   <div class="panel-body">
-    <p>You yield <%= pluralize(current_user.slices.count, "slice") %>,
-      <%= pluralize(current_user.comments.count, "comment") %>.</p>
-    <p>And got <%= pluralize(current_user_got_comments, "comment") %>.</p>
+    <p>@<%= @user.nickname %> yield <%= pluralize(@user.slices.count, "slice") %>,
+      <%= pluralize(@user.comments.count, "comment") %>.</p>
+    <p>And got <%= pluralize(user_got_comments(@user), "comment") %>.</p>
   </div>
 </div>
