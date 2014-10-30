@@ -1,4 +1,6 @@
 class RegistrationConfirmController < ApplicationController
+  skip_after_action :verify_authorized
+
   def update
     @identity = Identity.includes(:user).find_by!(confirm_token: params[:id])
     if @identity.confirm_sent_at < 2.hours.ago

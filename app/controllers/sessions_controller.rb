@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
+
   def new
   end
 
@@ -18,7 +21,7 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete(:auth_token)
-    redirect_to root_path, notice: "Signed out!"
+    redirect_to root_path
   end
 
   # omniauth process /auth/:provider/callback(.format) failure

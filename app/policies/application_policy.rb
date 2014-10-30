@@ -8,7 +8,7 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    raise Pundit::NotImplementedError, "#{method(__method__)} not implemented."
   end
 
   def show?
@@ -16,8 +16,7 @@ class ApplicationPolicy
   end
 
   def create?
-    raise Pundit::NotConfirmedError.new(user) unless ConfirmService.confirmed?(user)
-    true
+    raise Pundit::NotImplementedError, "#{method(__method__)} not implemented."
   end
 
   def new?
@@ -25,8 +24,7 @@ class ApplicationPolicy
   end
 
   def update?
-    raise Pundit::NotConfirmedError.new(user) unless ConfirmService.confirmed?(user)
-    true
+    raise Pundit::NotImplementedError, "#{method(__method__)} not implemented."
   end
 
   def edit?
@@ -34,8 +32,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    raise Pundit::NotConfirmedError.new(user) unless ConfirmService.confirmed?(user)
-    true
+    raise Pundit::NotImplementedError, "#{method(__method__)} not implemented."
   end
 
   def scope

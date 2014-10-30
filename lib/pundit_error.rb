@@ -6,4 +6,6 @@ module Pundit
       @user = user
     end
   end
+
+  class NotImplementedError < StandardError; end
 end

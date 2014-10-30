@@ -1,8 +1,6 @@
 class CommentsController < ApplicationController
-  after_action :verify_authorized, :except => [:index, :show]
-
   def create
-    @slice = current_user.slices.find(params[:slice_id])
+    @slice = Slice.find(params[:slice_id])
     @comment = @slice.comments.new(comment_params)
     authorize @comment
     @comment.user = current_user
@@ -11,11 +9,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @slice = current_user.slices.find(params[:slice_id])
-    @comment = @slice.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     authorize @comment
     @comment.destroy
-    redirect_to slice_path(@slice)
+    redirect_to request.referer
   end
 
   private

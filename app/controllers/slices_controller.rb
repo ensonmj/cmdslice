@@ -1,8 +1,8 @@
 class SlicesController < ApplicationController
-  after_action :verify_authorized, :except => [:index, :show]
+  skip_after_action :verify_authorized, only: :show
 
   def index
-    @slices = Slice.includes(:user).order("updated_at desc").page(params[:page])
+    @slices = policy_scope(Slice).page(params[:page])
   end
 
   def create
@@ -12,7 +12,6 @@ class SlicesController < ApplicationController
     if @slice.save
       redirect_to current_user
     else
-      flash[:error] = "Something error happened."
       render "new"
     end
   end

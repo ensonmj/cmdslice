@@ -1,9 +1,11 @@
 class PasswordResetsController < ApplicationController
+  skip_after_action :verify_authorized
+
   def new
   end
 
   def create
-    identity = Identity.find_by(email: params[:email])
+    identity = Identity.find_by!(email: params[:email])
     identity.send_password_reset if identity
     redirect_to root_url, notice: "Email sent with password reset instructions."
   end
