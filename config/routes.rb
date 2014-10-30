@@ -1,22 +1,23 @@
 Rails.application.routes.draw do
-  resources :password_resets
-  #resources :registration_confirm
-  get "/registration_confirm/:id" => "registration_confirm#update", as: "registration_confirm"
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root "slices#index"
+
   resources :slices do
-    resources :comments
+    resources :comments, only: [:create, :destroy]
   end
+
+  resources :users, only: :show
 
   get "/account/signup" => "identities#new", :as => "signup"
   get "/account/login" => "sessions#new", :as => "login"
   get "/account/logout" => "sessions#destroy", :as => "logout"
   match "/auth/:provider/callback" => "sessions#create", via: [:get, :post]
   get "/auth/failure" => "sessions#failure"
-  resources :identities
-  resources :users
+
+  get "/registration_confirm/:id" => "registration_confirm#update", as: "registration_confirm"
+
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
