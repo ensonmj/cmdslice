@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  resources :users, only: :show
+  resources :users, only: :show do
+    resources :profiles
+  end
 
   get "/account/signup" => "identities#new", :as => "signup"
   get "/account/login" => "sessions#new", :as => "login"

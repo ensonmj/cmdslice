@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024091909) do
+ActiveRecord::Schema.define(version: 20141031055955) do
 
   create_table "authentications", force: true do |t|
     t.string   "provider"
@@ -49,6 +49,18 @@ ActiveRecord::Schema.define(version: 20141024091909) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+  create_table "profiles", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "website"
+    t.string   "location"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "slices", force: true do |t|
     t.string   "title"

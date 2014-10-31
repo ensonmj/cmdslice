@@ -5,11 +5,15 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_format_of :email,
     :with => /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
+
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
   has_one :identity, :dependent => :destroy
   has_many :slices, :dependent => :destroy
   has_many :comments#, :dependent => :destroy
+  has_one :profile, :dependent => :destroy
+  accepts_nested_attributes_for :profile
+
   before_create { generate_token(:auth_token) }
 
   def add_auth(auth)
@@ -40,6 +44,7 @@ class User < ActiveRecord::Base
         user.authentications_attributes = [
           {provider: auth[:provider], uid: auth[:uid]}
         ]
+        user.profile_attributes = {email: auth[:info][:email]}
         # only affect user sign up with omniauth:identity
         user.identity = Identity.find_by(email: user.email)
       end
