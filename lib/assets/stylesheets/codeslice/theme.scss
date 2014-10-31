@@ -123,7 +123,7 @@ input,
 
   &:focus {
     border-color: $input-border;
-    @include box-shadow(none);
+    /*@include box-shadow(none);*/
   }
 }
 

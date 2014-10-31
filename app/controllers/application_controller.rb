@@ -24,7 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_confirmed(exception)
-    debugger
     redirect_to(request.referer||user_path(exception.user),
                 alert: "Please confirm your account.")
   end

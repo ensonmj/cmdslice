@@ -5,8 +5,8 @@
   <fieldset class="account-info">
     <label>
       Email
-      <%= email_field_tag :email, params[:email], required: true,
-        "data-parsley-trigger" => "change" %>
+      <%= email_field_tag :email, params[:email], class: "form-control",
+        required: true, "data-parsley-trigger" => "change" %>
     </label>
   </fieldset>
   <fieldset class="account-action">

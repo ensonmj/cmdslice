@@ -10,22 +10,23 @@
   <fieldset class="account-info">
     <label>
       Nickname
-      <%= text_field_tag :nickname, @identity.try(:nickname), required: true %>
+      <%= text_field_tag :nickname, @identity.try(:nickname),
+        class: "form-control", required: true %>
     </label>
     <label>
       Email
-      <%= email_field_tag :email, @identity.try(:email), required: true,
-        "data-parsley-trigger" => "change" %>
+      <%= email_field_tag :email, @identity.try(:email), class: "form-control",
+        required: true, "data-parsley-trigger" => "change" %>
     </label>
     <label>
       Password
-      <%= password_field_tag :password, nil, required: true,
-        "data-parsley-length" => "[6,20]" %>
+      <%= password_field_tag :password, nil, class: "form-control",
+        required: true, "data-parsley-length" => "[6,20]" %>
     </label>
     <label>
       Password confirmation
-      <%= password_field_tag :password_confirmation, nil, required: true,
-        "data-parsley-equalto" => "#password" %>
+      <%= password_field_tag :password_confirmation, nil, class: "form-control",
+        required: true, "data-parsley-equalto" => "#password" %>
     </label>
   </fieldset>
   <fieldset class="account-action">
