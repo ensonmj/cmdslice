@@ -6,7 +6,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def create?
-    false if user.nil?
+    return false if user.nil?
     raise Pundit::NotConfirmedError, user unless ConfirmService.confirmed?(user)
     true
   end
