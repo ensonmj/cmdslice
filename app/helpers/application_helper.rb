@@ -14,7 +14,7 @@ module ApplicationHelper
   def bootstrap_icon_for flash_type
     { success: "ok-circle",
       error: "remove-circle",
-      alert: "warning-sing",
+      alert: "warning-sign",
       notice: "exclamation-sign"
     }[flash_type.to_sym] || "question-sign"
   end
