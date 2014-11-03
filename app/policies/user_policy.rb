@@ -22,7 +22,8 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    false
+    # may update profile or identity password
+    user && user == record
   end
 
   def edit?

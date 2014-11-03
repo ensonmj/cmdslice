@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :show do
     resources :profiles
+    resources :identities, only: :update
   end
 
   get "/account/signup" => "identities#new", :as => "signup"

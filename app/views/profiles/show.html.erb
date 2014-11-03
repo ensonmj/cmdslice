@@ -1,47 +1,90 @@
 <%= render "shared/notify", notify: "Please confirm your account from your register email" unless ConfirmService.confirmed?(@user) %>
 
 <%= form_for [@user, @profile],
-  html: {class: "form-horizontal", "data-parsley-validate" => true} do |f| %>
+  html: {class: "form-horizontal profile-form", "data-parsley-validate" => true} do |f| %>
   <fieldset class="profile-info">
     <div class="form-group">
-      <label for="profile_name" class="col-sm-2 control-label">
+      <label for="profile_name" class="col-sm-3 control-label">
         Name
       </label>
-      <div class="col-sm-10">
+      <div class="col-sm-9">
         <%= f.text_field :name, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <label for="profile_email" class="col-sm-2 control-label">
+      <label for="profile_email" class="col-sm-3 control-label">
         Email
       </label>
-      <div class="col-sm-10">
+      <div class="col-sm-9">
         <%= f.email_field :email, class: "form-control", data: {"parsley-trigger" => "change"} %>
         <span class="help-block">This need not be your register email.</span>
       </div>
     </div>
     <div class="form-group">
-      <label for="profile_website" class="col-sm-2 control-label">
+      <label for="profile_website" class="col-sm-3 control-label">
         Website
       </label>
-      <div class="col-sm-10">
+      <div class="col-sm-9">
         <%= f.text_field :website, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <label for="profile_location" class="col-sm-2 control-label">
+      <label for="profile_location" class="col-sm-3 control-label">
         Location
       </label>
-      <div class="col-sm-10">
+      <div class="col-sm-9">
         <%= f.text_field :location, class: "form-control" %>
       </div>
     </div>
   </fieldset>
   <fieldset class="profile-action">
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-offset-3 col-sm-9">
         <%= f.submit "Update Profile", class: "btn btn-success" %>
       </div>
     </div>
   </fieldset>
+<% end %>
+
+<% if policy(@identity).edit? %>
+  <%= form_for [@user, @identity],
+    html: { class: "form-horizontal profile-form",
+            "data-parsley-validate" => true } do |f| %>
+    <fieldset class="profile-info">
+      <div class="form-group">
+        <label for="identity_old_password" class="col-sm-3 control-label">
+          Old Password
+        </label>
+        <div class="col-sm-9">
+          <%= f.password_field :old_password, class: "form-control",
+            required: true, "data-parsley-length" => "[6,20]" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="identity_password" class="col-sm-3 control-label">
+          New Password
+        </label>
+        <div class="col-sm-9">
+          <%= f.password_field :password, class: "form-control", required: true,
+            "data-parsley-length" => "[6,20]" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="identity_password_confirmation" class="col-sm-3 control-label">
+          New Password Confirm
+        </label>
+        <div class="col-sm-9">
+          <%= f.password_field :password_confirmation, class: "form-control",
+            required: true, "data-parsley-equalto" => "#identity_password" %>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="profile-action">
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <%= f.submit "Update Password", class: "btn btn-success" %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
 <% end %>
