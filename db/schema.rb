@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20141031055955) do
 
   create_table "authentications", force: true do |t|
-    t.string   "provider"
-    t.string   "uid"
+    t.string   "provider",   limit: 255
+    t.string   "uid",        limit: 255
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(version: 20141031055955) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "identities", force: true do |t|
-    t.string   "nickname"
-    t.string   "email"
-    t.string   "password_digest"
+    t.string   "nickname",               limit: 255
+    t.string   "email",                  limit: 255
+    t.string   "password_digest",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_reset_token"
+    t.string   "password_reset_token",   limit: 255
     t.datetime "password_reset_sent_at"
     t.integer  "user_id"
     t.string   "confirm_token"
@@ -63,22 +63,22 @@ ActiveRecord::Schema.define(version: 20141031055955) do
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "slices", force: true do |t|
-    t.string   "title"
-    t.string   "text"
+    t.string   "title",      limit: 255
+    t.string   "text",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "note"
+    t.string   "note",       limit: 255
     t.integer  "user_id"
   end
 
   add_index "slices", ["user_id"], name: "index_slices_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "nickname"
-    t.string   "email"
+    t.string   "nickname",   limit: 255
+    t.string   "email",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "auth_token"
+    t.string   "auth_token", limit: 255
   end
 
 end
