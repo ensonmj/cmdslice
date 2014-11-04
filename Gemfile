@@ -89,6 +89,8 @@ group :development do
   gem 'binding_of_caller'
 
   gem 'bullet'
+
+  gem 'seed_dump'
 end
 
 # gems for deployment in heroku
