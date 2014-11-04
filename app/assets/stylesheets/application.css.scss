@@ -18,9 +18,39 @@
 @import "profiles";
 
 
+html,
 body {
-  padding-top: 70px;
+  /* The html and body elements cannot have any padding or margin */
+  height: 100%;
   background: #e5e5e5;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important; /* ie7 fix */
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -50px;
+}
+
+#push,
+#footer {
+  /* Set the fixed height of footer here */
+  height: 50px;
+  .navbar {
+    margin-bottom: 0;
+  }
+}
+
+/* Lastly, apply responsive CSS fixed as necessary */
+@media (max-width: $screen-xs-max) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 pre, code {
@@ -124,16 +154,5 @@ textarea {
       float: left;
       margin: 10px 0 0 20px;
     }
-  }
-}
-
-#footer {
-  margin-top: 20px;
-  margin-bottom: 0;
-  padding: 10px 0;
-  background-color: #666;
-  text-align: center;
-  ul {
-    margin-bottom: 0;
   }
 }

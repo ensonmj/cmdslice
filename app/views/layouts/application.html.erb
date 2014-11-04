@@ -9,31 +9,32 @@
     <%= csrf_meta_tags %>
   </head>
   <body data-controller-name="<%= controller_name %>">
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <%= link_to "CodeSlice", "/", class: "navbar-brand" %>
-          <button type="button" class="navbar-toggle"
-            data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Slice", "#", class: "active navbar-link" %></li><!--
-            --><li><%= link_to "Ask", "#", class: "navbar-link" %></li><!--
-            --><li><%= link_to "Award", "#", class: "navbar-link",
-            style: "display: none" %></li>
+    <div id="wrap">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <%= link_to "CodeSlice", "/", class: "navbar-brand" %>
+            <button type="button" class="navbar-toggle"
+              data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Slice", "#", class: "active navbar-link" %></li><!--
+              --><li><%= link_to "Ask", "#", class: "navbar-link" %></li><!--
+              --><li><%= link_to "Award", "#", class: "navbar-link",
+              style: "display: none" %></li>
           </ul>
           <div class="navbar-right row">
             <form action="#" class="navbar-form col-sm-9" method="get"
               role="search" style="display:none">
               <input type="text" class="form-control"
-                name="q" placeholder="Search" disabled>
+              name="q" placeholder="Search" disabled>
             </form>
             <div class="col-sm-3">
               <ul class="nav navbar-nav">
@@ -44,46 +45,50 @@
                       dropdown-toggle" data-toggle="dropdown">
                       <span class="glyphicon glyphicon-user"></span>
                       <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <% if current_user %>
-                      <li><%= link_to "Home", user_path(current_user) %></li><!--
-                      --><li><%= link_to "Profile", [current_user, current_user.profile] %></li><!--
-                      --><li><%= link_to "Message", "#" %></li><!--
-                      --><li class="divider"></li><!--
-                      --><li><%= link_to "Log out", logout_path %></li>
-                    <% else %>
-                      <li><%= link_to "Log in", login_path %></li><!--
-                      --><li><%= link_to "Sign up", signup_path %></li>
-                    <% end %>
-                  </ul>
-                </li>
-              </ul>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <% if current_user %>
+                        <li><%= link_to "Home", user_path(current_user) %></li><!--
+                        --><li><%= link_to "Profile", [current_user, current_user.profile] %></li><!--
+                        --><li><%= link_to "Message", "#" %></li><!--
+                        --><li class="divider"></li><!--
+                        --><li><%= link_to "Log out", logout_path %></li>
+                      <% else %>
+                        <li><%= link_to "Log in", login_path %></li><!--
+                        --><li><%= link_to "Sign up", signup_path %></li>
+                      <% end %>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div id="flash">
-        <%= render "shared/flash" %>
-      </div>
-      <div class="row">
-        <section class="col-sm-8">
-          <%= yield %>
-        </section>
-        <aside class="col-sm-4">
-          <%= render "sidebar" %>
-        </aside>
-      </div>
-    </div>
-    <footer class="footer" id="footer" style="display:none">
       <div class="container">
-        <ul class="list-inline">
-          <li><%= link_to "Terms", "#" %></li><!--
-          --><li><%= link_to "Privacy", "#" %></li><!--
-          --><li><%= link_to "About", "#" %></li>
-        </ul>
+        <div id="flash">
+          <%= render "shared/flash" %>
+        </div>
+        <div class="row">
+          <section class="col-sm-8">
+            <%= yield %>
+          </section>
+          <aside class="col-sm-4">
+            <%= render "sidebar" %>
+          </aside>
+        </div>
+      </div>
+      <div id="push"></div>
+    </div>
+    <footer class="footer" id="footer">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Terms", "#" %></li><!--
+            --><li><%= link_to "Privacy", "#" %></li><!--
+            --><li><%= link_to "About", "#" %></li>
+          </ul>
+        </div>
       </div>
     </footer>
   </body>
