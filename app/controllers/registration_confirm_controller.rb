@@ -1,6 +1,17 @@
 class RegistrationConfirmController < ApplicationController
-  skip_after_action :verify_authorized
+  skip_after_action :verify_authorized, only: :update
 
+  # get /users/:user_id/registration_confirm/:id
+  def edit
+    @user = User.includes(:identity).find(params[:user_id])
+    authorize @user
+    @identity = @user.identity
+    authorize @identity
+    @identity.resend_registration_confirm
+    flash[:notice] = "Confirm code will be sent to your register email soon."
+  end
+
+  # get /registration_confirm/:id
   def update
     @identity = Identity.includes(:user).find_by!(confirm_token: params[:id])
     if @identity.confirmed?

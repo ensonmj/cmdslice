@@ -24,6 +24,13 @@ class Identity < OmniAuth::Identity::Models::ActiveRecord
     UserMailer.registration_confirm(self).deliver
   end
 
+  def resend_registration_confirm
+    generate_token(:confirm_token)
+    self[:confirm_sent_at] = Time.now.utc
+    save!
+    UserMailer.registration_confirm(self).deliver
+  end
+
   def registration_confirm
     self.confirmed_at = Time.now.utc
     save!

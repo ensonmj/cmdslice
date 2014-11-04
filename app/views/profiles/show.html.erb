@@ -1,4 +1,9 @@
-<%= render "shared/notify", notify: "Please confirm your account from your register email" unless ConfirmService.confirmed?(@user) %>
+<% unless ConfirmService.confirmed?(@user) %>
+  <div id="confirm-notify" class="panel panel-info">
+    <span>Please confirm your account from your register email or</span>
+    <%= link_to "resend confirm email", edit_user_registration_confirm_path(@user, @identity.confirm_token), remote: true %>
+  </div>
+<% end %>
 
 <%= form_for [@user, @profile],
   html: {class: "form-horizontal profile-form", "data-parsley-validate" => true} do |f| %>
