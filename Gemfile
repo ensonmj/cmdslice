@@ -64,7 +64,7 @@ gem 'omniauth-identity'
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-#gem 'font-awesome-sass'
+gem 'font-awesome-sass'
 gem 'pagedown-bootstrap-rails'
 
 gem 'sprite-factory', group: :development
