@@ -27,8 +27,8 @@ class SlicesController < ApplicationController
   end
 
   def show
-    @slice = Slice.find(params[:id])
-    @comments = @slice.comments.order("created_at").page(params[:page])
+    @slice = Slice.includes(comments:[:user, :cslice]).order("created_at").find(params[:id])
+    @comments = @slice.comments.page(params[:page])
   end
 
   def update
