@@ -3,7 +3,7 @@
   <h4 class="panel-title title">User Stat</h4>
 </div>
   <div class="panel-body">
-    <p>@<%= @user.nickname %> yield <%= pluralize(@user.slices.count, "slice") %>,
+    <p><%= link_to @user.nickname, "javascript:void(0);" %> yield <%= pluralize(@user.slices.count, "slice") %>,
       <%= pluralize(@user.comments.count, "comment") %>.</p>
     <p>And got <%= pluralize(user_got_comments(@user), "comment") %>.</p>
   </div>

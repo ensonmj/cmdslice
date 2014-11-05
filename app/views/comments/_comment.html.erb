@@ -1,6 +1,6 @@
 <div class="comment">
   <div class="comment-info">
-    <span><%= comment.user.nickname %></span>
+    <span><%= link_to comment.user.nickname, user_path(comment.user) %></span>
     <span><%= time_ago_in_words(comment.created_at) %></span>
     <%#= select_comment_icons_by_user(current_user, comment.cslice, comment) %>
   </div>
