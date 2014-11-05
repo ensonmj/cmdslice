@@ -27,7 +27,9 @@ class SlicesController < ApplicationController
   end
 
   def show
-    @slice = Slice.includes(comments:[:user, :cslice]).order("created_at").find(params[:id])
+    #comment icon for comments, so don't need to eager load :cslice
+    #@slice = Slice.includes(comments:[:user, :cslice]).order("created_at").find(params[:id])
+    @slice = Slice.includes(comments:[:user]).order("created_at").find(params[:id])
     @comments = @slice.comments.page(params[:page])
   end
 
