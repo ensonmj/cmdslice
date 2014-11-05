@@ -1,12 +1,12 @@
 <div class="slice">
-  <%= link_to slice_path(slice) do %>
+  <%#= link_to slice_path(slice) do %>
     <header class="se_header">
       <span><%= slice.title %></span>
       <small class="se_info"><%= slice.user.nickname %></small>
       <small class="se_info"><%= slice.updated_at %></small>
-      <%= select_icons_by_user(current_user, slice) %>
+      <%= select_slice_icons_by_user(current_user, slice) %>
     </header>
-  <% end %>
+  <%# end %>
 
   <div class="se_mkd">
 <%# remove leading spaces %>

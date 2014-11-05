@@ -1,11 +1,21 @@
 module SlicesHelper
-  def select_icons_by_user(user, slice)
+  def select_slice_icons_by_user(user, slice)
     content_tag(:div, class: "pull-right") do
-      concat content_tag(:span, nil, class: "glyphicon glyphicon-comment")
+      if ((controller_name == "slices" && action_name == "index") \
+          || (controller_name == "users" && action_name == "show"))
+        concat content_tag(:a,
+          content_tag(:span, nil, class: "glyphicon glyphicon-comment"),
+          href: slice_path(slice))
+      end
       unless user.nil?
         if slice.user?(user)
-          concat content_tag(:span, nil, class: "glyphicon glyphicon-edit")
-          concat content_tag(:span, nil, class: "glyphicon glyphicon-trash")
+          concat content_tag(:a,
+            content_tag(:span, nil, class: "glyphicon glyphicon-edit"),
+            href: edit_slice_path(slice))
+          concat content_tag(:a,
+            content_tag(:span, nil, class: "glyphicon glyphicon-trash"),
+            href: slice_path(slice),
+            method: :delete, data: {confirm: "Are you sure?"})
         else
           concat content_tag(:span, nil, class: "glyphicon glyphicon-thumbs-up")
           concat content_tag(:span, nil, class: "glyphicon glyphicon-thumbs-down")
