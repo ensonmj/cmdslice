@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031055955) do
+ActiveRecord::Schema.define(version: 20141107070539) do
 
   create_table "authentications", force: true do |t|
     t.string   "provider"
@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(version: 20141031055955) do
 
   create_table "slices", force: true do |t|
     t.string   "title"
-    t.string   "text"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "note"
+    t.text     "note"
     t.integer  "user_id"
   end
 

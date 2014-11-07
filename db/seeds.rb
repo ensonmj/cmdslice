@@ -8,10 +8,10 @@ Profile.create!([
   {name: nil, email: "ensonmj@163.com", website: nil, location: nil, user_id: 1}
 ])
 Slice.create!([
-  {title: "sync modified files", text: "```bash\r\ngit diff --name-only | xargs -I{} -r rsync -avR {} DEST_PATH\r\n```", note: "* find modified files\r\n* sync the files to DEST\r\n", user_id: 1},
-  {title: "临时强制使用密码登陆", text: "```bash\r\nssh user@ip -o PreferredAuthentications=password\r\n```", note: "远端服务器同时允许 *publickey* 和 *password* 登陆时，如果临时无法使用 *publickey*，可使用此方法江湖救急", user_id: 1},
-  {title: "mosh使用其他端口登陆", text: "```bash\r\nmosh --ssh=\"ssh -p xxxx\" user@ip\r\n```", note: "服务器修改了ssh的默认端口，xxxx表示修改后的端口", user_id: 1},
-  {title: "gdb远程调试", text: "```bash\r\n[remote]$ gdbserver ip:port program core\r\n\r\n[local]$ gdb program\r\n[local]$ (gdb) target remote ip:port\r\n```", note: "* 两边gdb版本最好一致\r\n* ip为remote的地址，port任选", user_id: 1}
+  {title: "sync modified files", body: "```bash\r\ngit diff --name-only | xargs -I{} -r rsync -avR {} DEST_PATH\r\n```", note: "* find modified files\r\n* sync the files to DEST\r\n", user_id: 1},
+  {title: "临时强制使用密码登陆", body: "```bash\r\nssh user@ip -o PreferredAuthentications=password\r\n```", note: "远端服务器同时允许 *publickey* 和 *password* 登陆时，如果临时无法使用 *publickey*，可使用此方法江湖救急", user_id: 1},
+  {title: "mosh使用其他端口登陆", body: "```bash\r\nmosh --ssh=\"ssh -p xxxx\" user@ip\r\n```", note: "服务器修改了ssh的默认端口，xxxx表示修改后的端口", user_id: 1},
+  {title: "gdb远程调试", body: "```bash\r\n[remote]$ gdbserver ip:port program core\r\n\r\n[local]$ gdb program\r\n[local]$ (gdb) target remote ip:port\r\n```", note: "* 两边gdb版本最好一致\r\n* ip为remote的地址，port任选", user_id: 1}
 ])
 User.create!([
   {nickname: "devel", email: "ensonmj@163.com", auth_token: "ABtvCzf4fZuntlSCF7Rk4g"}

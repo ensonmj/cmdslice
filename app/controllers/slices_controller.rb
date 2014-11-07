@@ -53,6 +53,6 @@ class SlicesController < ApplicationController
 
   private
   def slice_params
-    params.require(:slice).permit(:title, :text, :note)
+    params.require(:slice).permit(:title, :body, :note)
   end
 end

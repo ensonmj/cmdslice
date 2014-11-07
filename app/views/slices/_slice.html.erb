@@ -10,12 +10,13 @@
 
   <div class="se_mkd">
 <%# remove leading spaces %>
-<%= slice.text %>
+<%= slice.body %>
   </div>
 
   <%# display note as default unless note_hidden is true %>
   <% if(!defined? note_hidden or !note_hidden) %>
     <div class="se_mkd se_note">
+<%# remove leading spaces %>
 <%= slice.note %>
     </div>
   <% end %>

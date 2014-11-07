@@ -1,7 +1,7 @@
 class Slice < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   validates :title, presence: true, length: {minimum: 2}
-  validates_presence_of :text
+  validates_presence_of :body
   belongs_to :user
 
   def user?(user)
