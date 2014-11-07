@@ -2,7 +2,7 @@ Authentication.create!([
   {provider: "identity", uid: "1", user_id: 1}
 ])
 Comment.create!([
-  {body: "对于公网服务器，最好关闭password认证方式", slice_id: 2, user_id: 1}
+  {body: "对于公网服务器，最好关闭password认证方式", commentable_id: 2, commentable_type: "Slice", user_id: 1}
 ])
 Profile.create!([
   {name: nil, email: "ensonmj@163.com", website: nil, location: nil, user_id: 1}
