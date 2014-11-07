@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_one :identity, :dependent => :destroy
   has_many :slices, :dependent => :destroy
   has_many :comments#, :dependent => :destroy
+  has_many :asks
   has_one :profile, :dependent => :destroy
   accepts_nested_attributes_for :profile
 

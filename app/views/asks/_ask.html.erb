@@ -1,0 +1,13 @@
+<div class="ask">
+  <header class="ae_header">
+    <span><%= ask.title %></span>
+    <small class="ae_info"><%= link_to ask.user.nickname, user_path(ask.user) %></small>
+    <small class="ae_info"><%= time_ago_in_words(ask.updated_at) %></small>
+    <%= select_ask_icons_by_user(current_user, ask) %>
+  </header>
+
+  <div class="mkd">
+<%# remove leading spaces %>
+<%= ask.body %>
+  </div>
+</div>

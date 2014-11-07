@@ -28,8 +28,8 @@ class SlicesController < ApplicationController
 
   def show
     #comment icon for comments, so don't need to eager load :commentable
-    #@slice = Slice.includes(comments:[:user, :commentable]).order("created_at").find(params[:id])
-    @slice = Slice.includes(comments:[:user]).order("created_at").find(params[:id])
+    #@slice = Slice.includes(comments: [:user, :commentable]).order("created_at").find(params[:id])
+    @slice = Slice.includes(comments: [:user]).order("created_at").find(params[:id])
     @comments = @slice.comments.page(params[:page])
   end
 

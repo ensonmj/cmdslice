@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     resources :profiles
     resources :identities, only: :update
     resources :registration_confirm, only: [:edit]
+    resources :asks, except: [:index, :show]
+  end
+  get "asks" => "asks#index", as: "asks"
+  get "asks/:id" => "asks#show", as: "ask"
+  resources :asks, only: [:show] do
+      resources :comments, only: [:create, :destroy]
   end
 
   get "/account/signup" => "identities#new", :as => "signup"

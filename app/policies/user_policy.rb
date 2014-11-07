@@ -14,7 +14,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def create?
-    false
+    user && user == record
   end
 
   def new?

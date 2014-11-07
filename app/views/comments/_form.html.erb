@@ -1,4 +1,4 @@
-<%= form_for([@slice, @slice.comments.build], html: {"data-parsley-validate" => true}) do |f| %>
+<%= form_for([res, res.comments.build], html: {"data-parsley-validate" => true}) do |f| %>
   <div class="wmd-group">
     <div class="wmd-text">
       <%= f.text_area :body, class: "wmd-input", id: "wmd-input-comment",

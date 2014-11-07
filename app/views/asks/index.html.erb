@@ -1,0 +1,6 @@
+<div class="asks-box" id="asks-box">
+  <div class="asks">
+    <%= render @asks %>
+  </div>
+  <%= paginate @asks, remote: true %>
+</div>
