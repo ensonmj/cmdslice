@@ -1,0 +1,2 @@
+$("#asks-box>.asks").html("<%= j(render(@asks)) %>")
+$("#asks-box>.pagination").html("<%= j(paginate(@asks, remote:true)) %>")
