@@ -1,5 +1,5 @@
 class AsksController < ApplicationController
-  before_action :set_ask, only: [:show, :edit, :update, :destroy]
+  before_action :set_ask, only: [:edit, :update, :destroy]
   skip_after_action :verify_authorized, only: :show
 
   # GET /asks
@@ -24,6 +24,7 @@ class AsksController < ApplicationController
 
   # GET /asks/1/edit
   def edit
+    authorize @ask
   end
 
   # POST /asks
@@ -46,6 +47,8 @@ class AsksController < ApplicationController
   # PATCH/PUT /asks/1
   # PATCH/PUT /asks/1.json
   def update
+    authorize @ask
+
     respond_to do |format|
       if @ask.update(ask_params)
         format.html { redirect_to @ask, notice: 'Ask was successfully updated.' }
@@ -60,6 +63,8 @@ class AsksController < ApplicationController
   # DELETE /asks/1
   # DELETE /asks/1.json
   def destroy
+    authorize @ask
+
     @ask.destroy
     respond_to do |format|
       format.html { redirect_to asks_url, notice: 'Ask was successfully destroyed.' }
