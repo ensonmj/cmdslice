@@ -15,7 +15,7 @@ module SlicesHelper
           concat content_tag(:a,
             content_tag(:span, nil, class: "glyphicon glyphicon-trash"),
             href: slice_path(slice),
-            method: :delete, data: {confirm: "Are you sure?"})
+            data: {method: :delete, confirm: "Are you sure?"})
         else
           concat content_tag(:span, nil, class: "glyphicon glyphicon-thumbs-up")
           concat content_tag(:span, nil, class: "glyphicon glyphicon-thumbs-down")

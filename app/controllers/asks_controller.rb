@@ -19,6 +19,7 @@ class AsksController < ApplicationController
   # GET /asks/new
   def new
     @user = current_user
+    authorize @user
     @ask = Ask.new
     authorize @ask
   end
@@ -31,7 +32,9 @@ class AsksController < ApplicationController
   # POST /asks
   # POST /asks.json
   def create
-    @ask = current_user.asks.new(ask_params)
+    @user = current_user
+    authorize @user
+    @ask = @user.asks.new(ask_params)
     authorize @ask
 
     respond_to do |format|

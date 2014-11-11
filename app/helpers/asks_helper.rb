@@ -14,8 +14,8 @@ module AsksHelper
             href: edit_user_ask_path(user, ask))
           concat content_tag(:a,
             content_tag(:span, nil, class: "glyphicon glyphicon-trash"),
-            href: ask_path(ask),
-            method: :delete, data: {confirm: "Are you sure?"})
+            href: user_ask_path(user, ask),
+            data: {method: :delete, confirm: "Are you sure?"})
         else
           concat content_tag(:span, nil, class: "glyphicon glyphicon-thumbs-up")
           concat content_tag(:span, nil, class: "glyphicon glyphicon-thumbs-down")
