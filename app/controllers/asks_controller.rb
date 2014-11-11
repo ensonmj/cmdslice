@@ -1,4 +1,5 @@
 class AsksController < ApplicationController
+  include Commentable
   before_action :set_ask, only: [:edit, :update, :destroy]
   skip_after_action :verify_authorized, only: :show
 

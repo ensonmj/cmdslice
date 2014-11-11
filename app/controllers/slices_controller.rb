@@ -1,4 +1,5 @@
 class SlicesController < ApplicationController
+  include Commentable
   skip_after_action :verify_authorized, only: :show
 
   def index
