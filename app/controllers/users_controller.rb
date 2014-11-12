@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @slices = @user.slices.order("updated_at desc").page(params[:page])
+    @slices = @user.slices.includes(:user).page(params[:slice_page])
+    @asks = @user.asks.includes(:user).page(params[:ask_page])
   end
 end

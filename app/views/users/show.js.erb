@@ -1,0 +1,4 @@
+$("#user-slices>.slices").html("<%= j(render(@slices)) %>")
+$("#user-slices>.pagination").html("<%= j(paginate(@slices, remote: true, :param_name => "slice_page")) %>")
+$("#user-asks>.asks").html("<%= j(render(@asks)) %>")
+$("#user-asks>.pagination").html("<%= j(paginate(@asks, remote: true, :param_name => "ask_page")) %>")
