@@ -9,8 +9,9 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
   has_one :identity, :dependent => :destroy
-  has_many :slices, :dependent => :destroy
+  has_many :slices, -> { order(updated_at: :desc) }, :dependent => :destroy
   has_many :comments#, :dependent => :destroy
+  has_many :asks, -> { order(updated_at: :desc) }, :dependent => :destroy
   has_one :profile, :dependent => :destroy
   accepts_nested_attributes_for :profile
 

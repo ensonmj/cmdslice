@@ -1,4 +1,4 @@
-<%= render @slice %>
+<%= render @ask %>
 
 <div class="comments-box" id="comments-box">
   <div class="comments-stat"><%= pluralize(@comments.count, "comment") %></div>
@@ -8,4 +8,4 @@
   <%= paginate @comments, remote: true %>
 </div>
 
-<%= render "comments/form", res: @slice %>
+<%= render "comments/form", res: @ask %>

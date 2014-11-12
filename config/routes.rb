@@ -3,14 +3,18 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root "slices#index"
 
-  resources :slices do
-    resources :comments, only: [:create, :destroy]
+  concern :commentable do
+    post 'comments'
+    #delete 'destroy_comment'
   end
+  resources :slices, concerns: :commentable
+  resources :asks, only: [:index, :show], concerns: :commentable
 
   resources :users, only: :show do
     resources :profiles
     resources :identities, only: :update
     resources :registration_confirm, only: [:edit]
+    resources :asks, except: [:index, :show]
   end
 
   get "/account/signup" => "identities#new", :as => "signup"

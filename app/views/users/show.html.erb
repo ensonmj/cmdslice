@@ -1,6 +1,18 @@
-<% @slices.each do |slice| %>
-  <div class="slice">
-    <%= render slice %>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#user-slices" data-toggle="tab">Slices</a></li>
+  <li><a href="#user-asks" data-toggle="tab">Asks</li>
+</ul>
+<div class="tab-content">
+  <div id="user-slices" class="tab-pane fade in active">
+    <div class="slices">
+      <%= render @slices %>
+    </div>
+    <%= paginate @slices, remote: true, :param_name => "slice_page" %>
   </div>
-<% end %>
-<%= paginate @slices %>
+  <div id="user-asks" class="tab-pane fade">
+    <div class="asks">
+      <%= render @asks %>
+    </div>
+    <%= paginate @asks, remote: true, :param_name => "ask_page" %>
+  </div>
+</div>

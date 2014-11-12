@@ -1,7 +1,7 @@
-class SlicePolicy < ApplicationPolicy
+class AskPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.includes(:user).order("updated_at desc")
+      scope
     end
   end
 

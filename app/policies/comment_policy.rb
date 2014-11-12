@@ -5,13 +5,13 @@ class CommentPolicy < ApplicationPolicy
     end
   end
 
-  def create?
+  def comments?
     return false if user.nil?
     raise Pundit::NotConfirmedError, user unless ConfirmService.confirmed?(user)
     true
   end
 
-  def destroy?
-    user && user.id == record.user_id
-  end
+  #def destroy?
+    #user && user.id == record.user_id
+  #end
 end

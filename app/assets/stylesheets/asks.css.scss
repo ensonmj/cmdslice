@@ -1,0 +1,19 @@
+// Place all the styles related to the Asks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "globalvars";
+
+.ask {
+  margin-bottom: $margin-bottom;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  .ae_header {
+    padding: 6px 10px;
+    background: #D0D0D0;
+    .ae_info {
+      color: rgba(140, 160, 100, 0.7)
+    }
+    span {
+      padding: 0 2px;
+    }
+  }
+}
