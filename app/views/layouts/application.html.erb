@@ -50,7 +50,7 @@
                       <% if current_user %>
                         <li><%= link_to "Home", user_path(current_user) %></li><!--
                         --><li><%= link_to "Profile", [current_user, current_user.profile] %></li><!--
-                        --><li><%= link_to "Message", "#" %></li><!--
+                        --><li><%= link_to "Message", "#", style: "display:none" %></li><!--
                         --><li class="divider"></li><!--
                         --><li><%= link_to "Log out", logout_path %></li>
                       <% else %>
