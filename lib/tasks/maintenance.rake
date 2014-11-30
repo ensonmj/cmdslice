@@ -1,5 +1,5 @@
 namespace :maintenance do
-  MAINTENANCE_EXAMPLE = Rails.root.join "public/maintenance.html.example"
+  MAINTENANCE_EXAMPLE = Rails.root.join "public/maintenance.html.sample"
   MAINTENANCE_FILE = Rails.root.join "public/maintenance.html"
 
   desc "Start the maintenance mode"
