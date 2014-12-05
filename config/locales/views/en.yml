@@ -20,4 +20,28 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  login: "Log in"
+  signup: "Sign up"
+  layouts:
+    application:
+      slice: "Slice"
+      ask: "Ask"
+      award: "Award"
+      home: "Home"
+      profile: "Profile"
+      message: "Message"
+      logout: "Log out"
+      terms: "TERMS"
+      privacy: "PRIVACY"
+      about: "ABOUT"
+  identities:
+    new:
+      tip: "Already have an account?"
+  users:
+    show:
+  profiles:
+    show:
+  slices:
+    show:
+  asks:
+    show:

@@ -39,8 +39,29 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'unicorn'
 gem 'puma'
 
-# Use Capistrano for deployment
+gem 'marked-rails'
+#gem 'codemirror-rails'
+
+gem 'omniauth-github'
+gem 'omniauth-identity'
+
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'font-awesome-sass'
+gem 'pagedown-bootstrap-rails'
+
+gem 'kaminari'
+
+gem 'pundit'
+
+gem 'parsley-rails'
+
+gem 'newrelic_rpm'
+
+gem 'rails-i18n'
+
 group :development do
+  # Use Capistrano for deployment
   gem 'capistrano', require: false
   gem 'capistrano-ssh-doctor', require: false
   gem 'capistrano-rbenv-install', require: false
@@ -52,9 +73,7 @@ group :development do
   gem 'capistrano-postgresql', require: false
   gem 'capistrano-faster-assets', require: false
   gem 'capistrano3-puma', require: false
-end
 
-group :development do
   gem 'sprite-factory'
   gem 'chunky_png'
 
@@ -82,21 +101,3 @@ group :production do
   # gem 'rails_12factor'
 end
 
-gem 'marked-rails'
-#gem 'codemirror-rails'
-
-gem 'omniauth-github'
-gem 'omniauth-identity'
-
-gem 'bootstrap-sass'
-gem 'autoprefixer-rails'
-gem 'font-awesome-sass'
-gem 'pagedown-bootstrap-rails'
-
-gem 'kaminari'
-
-gem 'pundit'
-
-gem 'parsley-rails'
-
-gem 'newrelic_rpm'

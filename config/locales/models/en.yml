@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    models:
+      identity:
+    attributes:
+      identity:
+        nickname: "Nickname"
+        email: "Email"
+        passwd: "Password"
+        passwd_confirm: "Password confirmation"

@@ -1,0 +1,26 @@
+zh:
+  login: "登录"
+  signup: "注册"
+  layouts:
+    application:
+      slice: "代码片段"
+      ask: "问答"
+      award: "成就"
+      home: "我的主页"
+      profile: "个人资料设置"
+      message: "消息"
+      logout: "注销"
+      terms: "条款"
+      privacy: "隐私"
+      about: "关于"
+  identities:
+    new:
+      tip: "已经注册了帐号?"
+  users:
+    show:
+  profiles:
+    show:
+  slices:
+    show:
+  asks:
+    show:

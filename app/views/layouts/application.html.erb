@@ -25,9 +25,9 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><%= link_to "Slice", slices_path, class: "active navbar-link" %></li><!--
-              --><li><%= link_to "Ask", asks_path, class: "navbar-link" %></li><!--
-              --><li><%= link_to "Award", "#", class: "navbar-link",
+              <li><%= link_to t(".slice"), slices_path, class: "active navbar-link" %></li><!--
+              --><li><%= link_to t(".ask"), asks_path, class: "navbar-link" %></li><!--
+              --><li><%= link_to t(".award"), "#", class: "navbar-link",
               style: "display: none" %></li>
           </ul>
           <div class="navbar-right row">
@@ -48,14 +48,14 @@
                     </button>
                     <ul class="dropdown-menu">
                       <% if current_user %>
-                        <li><%= link_to "Home", user_path(current_user) %></li><!--
-                        --><li><%= link_to "Profile", [current_user, current_user.profile] %></li><!--
-                        --><li><%= link_to "Message", "#", style: "display:none" %></li><!--
+                        <li><%= link_to t(".home"), user_path(current_user) %></li><!--
+                        --><li><%= link_to t(".profile"), [current_user, current_user.profile] %></li><!--
+                        --><li><%= link_to t(".message"), "#", style: "display:none" %></li><!--
                         --><li class="divider"></li><!--
-                        --><li><%= link_to "Log out", logout_path %></li>
+                        --><li><%= link_to t(".logout"), logout_path %></li>
                       <% else %>
-                        <li><%= link_to "Log in", login_path %></li><!--
-                        --><li><%= link_to "Sign up", signup_path %></li>
+                        <li><%= link_to t("login"), login_path %></li><!--
+                        --><li><%= link_to t("signup"), signup_path %></li>
                       <% end %>
                     </ul>
                   </li>
@@ -84,9 +84,9 @@
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Terms", "#" %></li><!--
-            --><li><%= link_to "Privacy", "#" %></li><!--
-            --><li><%= link_to "About", "#" %></li>
+            <li><%= link_to t(".terms"), "#" %></li><!--
+            --><li><%= link_to t(".privacy"), "#" %></li><!--
+            --><li><%= link_to t(".about"), "#" %></li>
           </ul>
         </div>
       </div>

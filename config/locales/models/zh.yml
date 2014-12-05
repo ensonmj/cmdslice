@@ -1,0 +1,10 @@
+zh:
+  activerecord:
+    models:
+      identity:
+    attributes:
+      identity:
+        nickname: "昵称"
+        email: "邮件"
+        passwd: "密码"
+        passwd_confirm: "密码确认"

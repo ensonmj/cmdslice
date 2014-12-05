@@ -1,6 +1,6 @@
 <p>
-  <strong>Already have an account?</strong>
-  <%= link_to "Log in", login_path %> from here.
+  <strong><%= t(".tip") %></strong>
+  <%= link_to t("login"), login_path %>
 </p>
 
 <%= form_tag "/auth/identity/register", class: "account-form",
@@ -9,27 +9,27 @@
 
   <fieldset class="account-info">
     <label>
-      Nickname
+      <%= Identity.human_attribute_name("nickname") %>
       <%= text_field_tag :nickname, @identity.try(:nickname),
         class: "form-control", required: true %>
     </label>
     <label>
-      Email
+      <%= Identity.human_attribute_name("email") %>
       <%= email_field_tag :email, @identity.try(:email), class: "form-control",
         required: true, "data-parsley-trigger" => "change" %>
     </label>
     <label>
-      Password
+      <%= Identity.human_attribute_name("passwd") %>
       <%= password_field_tag :password, nil, class: "form-control",
         required: true, "data-parsley-length" => "[6,20]" %>
     </label>
     <label>
-      Password confirmation
+      <%= Identity.human_attribute_name("passwd_confirm") %>
       <%= password_field_tag :password_confirmation, nil, class: "form-control",
         required: true, "data-parsley-equalto" => "#password" %>
     </label>
   </fieldset>
   <fieldset class="account-action">
-    <input id="register" class="btn btn-success" type="submit" value="Register">
+    <%= submit_tag t("signup"), id: "register", class: "btn btn-success" %>
   </fieldset>
 <% end %>
